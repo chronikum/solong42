@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/19 11:28:27 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/19 13:57:30 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ typedef struct s_game_map
 	char **map_data;
 }	t_game_map;
 
-int	ft_check_map_file(char *file_name);
-t_game_map *ft_get_map(int argc, char *argv[]);
-int	ft_check_map_data(char **data, int lines);
+t_game_map	*ft_get_map(int argc, char *argv[]);
+int			ft_check_map_data(t_game_map game_map);
 
 
 

@@ -6,15 +6,16 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/19 13:47:51 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/19 15:25:00 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
 /*
-** Reads in the map and checks data with
-** sub functions for validity.
+** Reads in the map data and checks data with
+** sub functions for validity. Also gets
+** metadata like length and height of the map.
 */
 static char	**ft_read_map_file(char *fn, int *he, int *le)
 {
@@ -28,7 +29,7 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 	fd = open(fn, O_RDONLY);
 	c = malloc(sizeof(char) * 100);
 	ret = malloc(sizeof(char **) * 6);
-	if (!c || fd == -1)
+	if (!c || fd == -1 || !ret)
 		return (NULL);
 	last_state = get_next_line(fd, &c);
 	while (last_state == 1)
@@ -39,11 +40,6 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 		last_state = get_next_line(fd, &c);
 	}
 	ret[*he] = c;
-	// ft_printf("%s\n", ret[0]);
-	// ft_printf("%s\n", ret[1]);
-	// ft_printf("%s\n", ret[2]);
-	// ft_printf("%s\n", ret[3]);
-	// ft_printf("%s\n", ret[4]);
 	return (ret);
 }
 
@@ -68,7 +64,7 @@ t_game_map *ft_get_map(int argc, char *argv[])
 		game_map->map_height = map_h;
 		game_map->map_height = map_l;
 		game_map->map_data = map_data;
+		return (game_map);
 	}
-
-	return (game_map);
+	return (NULL);
 }
