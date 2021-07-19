@@ -1,3 +1,6 @@
 *.o
 .vscode
 .DS_Store
+*.out
+*.a
+test.txt
