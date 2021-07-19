@@ -1,0 +1,15 @@
+*.o
+libft.h.gch
+a.out
+.DS_Store
+settings.json
+extensions.json
+.vscode/
+.ignore
+main.c
+*.a
+.DS_Store
+settings.json
+extensions.json
+.vscode/
+test.txt
