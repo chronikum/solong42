@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 09:12:02 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:08:14 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_game_map *ft_get_map(int argc, char *argv[])
 
 	map_data = NULL;
 	game_map = malloc(sizeof(t_game_map));
-	if (argc != 1 && game_map)
+	if (argc != 1 && game_map && ft_check_filename(argv[1]))
 	{
 		map_data = ft_read_map_file(argv[1], &map_h, &map_l);
 		if (!map_data)

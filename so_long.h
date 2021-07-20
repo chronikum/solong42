@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 10:43:42 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:07:19 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int			ft_check_map_data(t_game_map *game_map);
 
 int			ft_check_is_wall(char *wall);
 char		*ft_singlelinechr(char *line, char c);
+int			ft_check_filename(char *file_name);
 
 #endif
