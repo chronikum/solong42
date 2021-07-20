@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:00:32 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 09:07:29 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 10:29:38 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,22 @@ int	ft_check_is_wall(char *wall)
 	while (wall[count] == '1')
 		count++;
 	return (ft_strlen(wall) == count);
+}
+
+/*
+**	Returns the position of the player
+**	in the string.
+**	Returns (NULL) if there is no player
+**	or more than one
+*/
+char	*ft_linechr_player(char *line)
+{
+	char *p;
+	char *pr;
+
+	p = ft_strchr(line, 'P');
+	pr = ft_strrchr(line, 'P');
+	if (p == pr && (pr && p))
+		return (p);
+	return (NULL);
 }

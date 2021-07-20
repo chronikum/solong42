@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:45:44 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 09:09:29 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 10:32:37 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,33 @@ static int	ft_check_length(t_game_map *game_map)
 		cl++;
 	}
 	return (is_l == should_l);
+}
+
+/*
+**	Checks if there is exactly one player.
+*/
+static unsigned long	ft_check_player(t_game_map *game_map)
+{
+	int		count;
+	char	*position;
+	char	*position2;
+	char	*line;
+
+	position = 0;
+	count = 0;
+	position2 = 0;
+	while (count <= game_map->map_height)
+	{
+		line = game_map->map_data[count];
+		if (position)
+			position2 = ft_linechr_player(line);
+		if (!position)
+			position = ft_linechr_player(line);
+		if (position2)
+			return (0);
+		count++;
+	}
+	return (!!position);
 }
 
 /*
@@ -66,7 +93,6 @@ static int	ft_check_walls(t_game_map *game_map)
 }
 
 /*
-**
 **	This checks the map struct for validity and rules:
 **  - All lines have same length
 **  - Theres one player symbol
@@ -78,6 +104,8 @@ int	ft_check_map_data(t_game_map *game_map)
 	if (!ft_check_length(game_map))
 		return (0);
 	if (!ft_check_walls(game_map))
+		return (0);
+	if (!ft_check_player(game_map))
 		return (0);
 	return (1);
 }
