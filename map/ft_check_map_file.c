@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:45:44 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 10:39:55 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 10:42:50 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	Checks if all the lines have the same length.
 **	Returns 1, if true, 0 if otherwise
 */
-static int	ft_check_length(t_game_map *game_map)
+static int			ft_check_length(t_game_map *game_map)
 {
 	int line_l;
 	int should_l;
@@ -100,9 +100,9 @@ static unsigned long	ft_check_player(t_game_map *game_map)
 */
 static int	ft_check_walls(t_game_map *game_map)
 {
-	int	count;
-	int flag;
-	char *temp;
+	int		count;
+	int		flag;
+	char	*temp;
 
 	count = 0;
 	flag = 1;
