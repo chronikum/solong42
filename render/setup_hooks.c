@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 11:48:11 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 12:09:31 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 static int	key_hook(int keycode, t_render_v *vars)
 {
 	if (keycode == 53)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
 		exit(0);
+	}
 	if (vars)
-		ft_printf("Hello from key_hook! %d\n", keycode);
-
+		ft_control_player(keycode, NULL);
 	return (0);
 }
 
@@ -40,14 +42,18 @@ t_render_v	*ft_init_window()
 	if (!vars)
 		return (NULL);
 	vars->mlx = mlx_init();
+	if (!vars->mlx)
+		return (NULL);
 	vars->win = mlx_new_window(vars->mlx, 1920, 1080, "Hello world!");
 	mlx_key_hook(vars->win, key_hook, &vars);
 	mlx_loop(vars->mlx);
-	return (t_render_v);
+	return (vars);
 }
 
-int	ft_start_render()
+t_render_v	*ft_start_render()
 {
-	ft_init_window();
-	return (0);
+	t_render_v *vars;
+	vars = ft_init_window();
+	
+	return (vars);
 }

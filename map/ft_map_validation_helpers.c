@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:00:32 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 11:31:13 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 12:25:36 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,34 @@ int		ft_check_filename(char *file_name)
 	return (0);
 }
 
+/*
+** Writes the player position in given
+** parameters x and y.
+** It will also update the player position,
+** when called
+*/
+void	ft_find_player(t_game_map *game_map, 
+	int *x, int *y)
+{
+	int count;
+	char *line;
+	int xPos;
+
+	count = 0;
+	xPos = 0;
+	while (count <= game_map->map_height)
+	{
+		line = game_map->map_data[count];
+		if (ft_strchr(line, 'P'))
+		{
+			*y = count;
+			while (line[xPos] != 'P')
+				xPos++;
+			*x = xPos;
+		}
+		count++;
+	}
+}
 
 /*
 **	Returns the position of the char
