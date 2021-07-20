@@ -6,13 +6,14 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 11:07:19 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:46:23 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <mlx.h>
 # include "libft/libft.h"
 
 typedef struct s_game_map
@@ -24,11 +25,18 @@ typedef struct s_game_map
 	char	**map_data;
 }	t_game_map;
 
+typedef struct	s_render_v {
+	void	*mlx;
+	void	*win;
+}	t_render_v;
+
 t_game_map	*ft_get_map(int argc, char *argv[]);
 int			ft_check_map_data(t_game_map *game_map);
 
 int			ft_check_is_wall(char *wall);
 char		*ft_singlelinechr(char *line, char c);
 int			ft_check_filename(char *file_name);
+
+int			ft_start_render();
 
 #endif

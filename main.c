@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 10:50:18 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:51:29 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,17 @@ int	ft_exit_with_error()
 	exit(1);
 }
 
+/*
+** Initializes the window, returns
+** at at exit.
+*/
 int	ft_start_game(t_game_map *game_map)
 {
-	int status;
-	char *user_input;
+	t_render_v *vars;
 
+	vars = ft_start_render();
 	if (game_map->map_length)
 		ft_printf("OK");
-	user_input = malloc(sizeof(char) * 100);
-	status = get_next_line(1, &user_input);
-	while (status == 1)
-	{
-		ft_printf("%s", user_input);
-		status = get_next_line(1, &user_input);
-	}
-
 	return (0);
 }
 

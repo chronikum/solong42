@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:00:32 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 11:09:00 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/20 11:31:13 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	ft_check_is_wall(char *wall)
 
 /**
 **	Check if the filename has
-**	a valid extension
+**	a valid extension (.ber)
+**	If not, it returns 0.
 */
 int		ft_check_filename(char *file_name)
 {
@@ -40,6 +41,7 @@ int		ft_check_filename(char *file_name)
 	file_p = ft_split((const char *) file_name, '.');
 	if (ft_strncmp((const char *) file_p[1], "ber", 4) == 0)
 		return (1);
+	free(file_p);
 	return (0);
 }
 
