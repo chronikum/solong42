@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:09:25 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:32:31 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,19 @@ static void	ft_clear_content(t_render_v **vars)
 	mlx_clear_window((*vars)->mlx, (*vars)->win);
 }
 
-static void ft_draw_tile(char type, t_render_v **vars, int x, int y, t_game_map *game_map)
+static void ft_put_player(t_render_v **vars, t_game_map *game_map)
 {
 	char	*marvin = "./assets/Marvin80.xpm";
+	int		img_width;
+	int		img_height;
+	void	*img;
+	
+	img = mlx_xpm_file_to_image((*vars)->mlx, marvin, &img_width, &img_height);
+	mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, game_map->player_position_x, game_map->player_position_y);
+}
+
+static void ft_draw_tile(char type, t_render_v **vars, int x, int y)
+{
 	char	*wall = "./assets/wall80.xpm";
 	int		img_width;
 	int		img_height;
@@ -29,11 +39,6 @@ static void ft_draw_tile(char type, t_render_v **vars, int x, int y, t_game_map 
 	{
 		img = mlx_xpm_file_to_image((*vars)->mlx, wall, &img_width, &img_height);
 		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
-	}
-	if (type == 'P')
-	{
-		img = mlx_xpm_file_to_image((*vars)->mlx, marvin, &img_width, &img_height);
-		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, game_map->player_position_x, game_map->player_position_y);
 	}
 }
 
@@ -58,7 +63,7 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 		while (game_map->map_data[count][char_counter] != 0)
 		{
 			current = game_map->map_data[count][char_counter];
-			ft_draw_tile(current, vars, x, y, game_map);
+			ft_draw_tile(current, vars, x, y);
 			char_counter++;
 			x += TILE_WIDTH;
 		}
@@ -66,6 +71,7 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 		y += TILE_WIDTH;
 		count++;
 	}
+	ft_put_player(vars, game_map);
 }
 
 void		ft_render_basic(t_game_map *game_map, t_render_v **vars)

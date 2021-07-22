@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 12:13:41 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:17:13 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_start_game(t_game_map *game_map)
 {
 	t_render_v *vars;
 
-	vars = ft_start_render();
+	vars = ft_start_render(game_map);
 	if (game_map->map_length)
 		ft_printf("OK");
 	return (0);

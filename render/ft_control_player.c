@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:53:21 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 14:05:26 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:32:57 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_game_map *ft_control_player(int keycode, t_game_map *inj_game_map)
 		game_map = inj_game_map;
 		ft_find_player(game_map, &game_map->player_position_x,
 			&game_map->player_position_y);
+		ft_printf("PLAYER SET!\n");
 	}
 	if (game_map)
 	{

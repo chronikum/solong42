@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:06:14 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:18:08 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <mlx.h>
 # include "libft/libft.h"
 
-# define TILE_WIDTH 80; 
+# define TILE_WIDTH 80
 typedef struct s_game_map
 {
 	int		map_height;
@@ -39,11 +39,14 @@ char		*ft_singlelinechr(char *line, char c);
 int			ft_check_filename(char *file_name);
 void		ft_find_player(t_game_map *game_map, int *x, int *y);
 
-t_render_v	*ft_start_render();
+t_render_v	*ft_start_render(t_game_map *game_map);
 
 t_game_map	*ft_control_player(int keycode, t_game_map *inj_game_map);
 
 t_game_map	*ft_keycode_action(t_game_map *game_map, int keycode);
 
 void		ft_render_basic(t_game_map *game_map, t_render_v **vars);
+
+int			ft_window_height(t_game_map *game_map);
+int			ft_window_width(t_game_map *game_map);
 #endif

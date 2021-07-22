@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:00:32 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 12:25:36 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:33:33 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void	ft_find_player(t_game_map *game_map,
 		line = game_map->map_data[count];
 		if (ft_strchr(line, 'P'))
 		{
-			*y = count;
+			*y = (count * TILE_WIDTH);
 			while (line[xPos] != 'P')
 				xPos++;
-			*x = xPos;
+			*x = (xPos * TILE_WIDTH);
 		}
 		count++;
 	}

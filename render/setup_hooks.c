@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 16:10:06 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:18:18 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,31 @@ static int	key_hook(int keycode, t_render_v **vars)
 ** keypress events.
 ** Returns the t_render_v struct
 */
-t_render_v	*ft_init_window()
+static t_render_v	*ft_init_window(t_game_map *game_map)
 {
 	t_render_v	*vars;
-	
+	int	w_width;
+	int w_height;
+
 	vars = malloc(sizeof(t_render_v));
 	if (!vars)
 		return (NULL);
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
 		return (NULL);
-	vars->win = mlx_new_window(vars->mlx, 1920, 1080, "Hello world!");
+	w_width = ft_window_width(game_map);
+	w_height = ft_window_height(game_map);
+	vars->win = mlx_new_window(vars->mlx, w_width, w_height, "Hello world!");
 	mlx_key_hook(vars->win, key_hook, &vars);
 	mlx_loop(vars->mlx);
 	key_hook(-1, &vars);
 	return (vars);
 }
 
-t_render_v	*ft_start_render()
+t_render_v	*ft_start_render(t_game_map *game_map)
 {
 	t_render_v *vars;
-	vars = ft_init_window();
+	vars = ft_init_window(game_map);
 	
 	return (vars);
 }
