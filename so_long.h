@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 12:27:15 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 13:50:14 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ t_render_v	*ft_start_render();
 
 void	ft_control_player(int keycode, t_game_map *inj_game_map);
 
+t_game_map	*ft_keycode_action(t_game_map *game_map, int keycode);
 #endif
