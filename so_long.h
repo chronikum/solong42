@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 16:09:13 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:06:14 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <mlx.h>
 # include "libft/libft.h"
 
+# define TILE_WIDTH 80; 
 typedef struct s_game_map
 {
 	int		map_height;
