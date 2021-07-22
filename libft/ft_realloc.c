@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_render_map.c                                    :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 16:17:27 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 16:18:45 by jfritz           ###   ########.fr       */
+/*   Created: 2021/07/22 19:34:30 by jfritz            #+#    #+#             */
+/*   Updated: 2021/07/22 19:41:13 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "libft.h"
 
-
-// void	ft_render_map(t_game_map *game_map, t_render_v **vars)
-// {
-	
-// }
+void	*ft_realloc(void *src, size_t size)
+{
+	void	*dst;
+	dst = malloc(size);
+	if (!dst)
+	{
+		free(src);
+		return (NULL);
+	}
+	if (!src)
+		return (NULL);
+	ft_memmove(dst, src, size);
+	free(src);
+	return (dst);
+}

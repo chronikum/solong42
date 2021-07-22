@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 13:55:24 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 19:54:42 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 	char	*c;
 	char	**ret;
 	int		last_state;
+	int		linecount;
 
 	*he = 0;
 	*le = 0;
+	linecount = 0;
 	fd = open(fn, O_RDONLY);
 	c = malloc(sizeof(char) * 100);
-	ret = malloc(sizeof(char **) * 6);
+	ret = malloc(sizeof(char **) * 1);
 	if (!c || fd == -1 || !ret)
 		return (NULL);
 	last_state = get_next_line(fd, &c);
@@ -37,8 +39,12 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 		*le = ft_strlen(c);
 		ret[*he] = c;
 		(*he)++;
+		ret = ft_realloc((void *) ret, sizeof(char **) * (*he + 1));
 		last_state = get_next_line(fd, &c);
 	}
+	ft_printf("Counted height %d\n", (*he));
+	ft_printf("Counted length %d\n", (*le));
+	ft_printf("Linecount from file: %d\n", linecount);
 	ret[*he] = c;
 	return (ret);
 }

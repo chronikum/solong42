@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:45:44 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/20 10:42:50 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 18:10:21 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int			ft_check_length(t_game_map *game_map)
 		should_l += line_l;
 		cl++;
 	}
+	ft_printf("\nIS: %d\n", should_l);
+	ft_printf("SHOULD: %d\n", is_l);
 	return (is_l == should_l);
 }
 
@@ -132,12 +134,16 @@ static int	ft_check_walls(t_game_map *game_map)
 */
 int	ft_check_map_data(t_game_map *game_map)
 {
+	ft_printf("START CHECK");
 	if (!ft_check_length(game_map))
 		return (0);
+	ft_printf("LENGTH OK");
 	if (!ft_check_walls(game_map))
 		return (0);
+	ft_printf("WALL OK");
 	if (!ft_check_player(game_map))
 		return (0);
+	ft_printf("PLAYER OK");
 	if (!ft_check_exit(game_map))
 		return (0);
 	return (1);

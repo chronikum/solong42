@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:18:18 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 18:57:50 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static t_render_v	*ft_init_window(t_game_map *game_map)
 		return (NULL);
 	w_width = ft_window_width(game_map);
 	w_height = ft_window_height(game_map);
-	vars->win = mlx_new_window(vars->mlx, w_width, w_height, "Hello world!");
+	vars->win = mlx_new_window(vars->mlx, w_width, w_height, "so_long game");
 	mlx_key_hook(vars->win, key_hook, &vars);
 	mlx_loop(vars->mlx);
 	key_hook(-1, &vars);

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:32:31 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:52:03 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static void ft_put_player(t_render_v **vars, t_game_map *game_map)
 static void ft_draw_tile(char type, t_render_v **vars, int x, int y)
 {
 	char	*wall = "./assets/wall80.xpm";
+	char	*exit = "./assets/exit80.xpm";
+	char	*collectable = "./assets/collectable80.xpm";
 	int		img_width;
 	int		img_height;
 	void	*img;
@@ -39,6 +41,19 @@ static void ft_draw_tile(char type, t_render_v **vars, int x, int y)
 	{
 		img = mlx_xpm_file_to_image((*vars)->mlx, wall, &img_width, &img_height);
 		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
+		free(img);
+	}
+	if (type == 'C')
+	{
+		img = mlx_xpm_file_to_image((*vars)->mlx, collectable, &img_width, &img_height);
+		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
+		free(img);
+	}
+	if (type == 'E')
+	{
+		img = mlx_xpm_file_to_image((*vars)->mlx, exit, &img_width, &img_height);
+		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
+		free(img);
 	}
 }
 
@@ -83,8 +98,5 @@ void		ft_render_basic(t_game_map *game_map, t_render_v **vars)
 			ft_clear_content(vars);
 			ft_draw_content(vars, game_map);
 		}
-	}	
-	// mlx_png_file_to_image(mlx_data->mlx, relative_path, &img_width, &img_width);
-	// img = mlx_put_image_to_window(void *mlx_ptr, void *win_ptr, void *img_ptr, int x, int y);
-	// if (mlx_data)
+	}
 }
