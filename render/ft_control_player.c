@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:53:21 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 13:54:09 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 14:05:26 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,13 @@
 **	Controls the player. Keycodes determine according
 **	logic to be called on the static variable
 **	map_data. This is what is being rendered later on.
-**	It also updates the player position.
+**
+**  When the static variable game_map is being initialized
+**  at the beginning we will also get the players position
+**  in the map. This is being updated through the 
+**  ft_keycode_action function.
 */
-void ft_control_player(int keycode, t_game_map *inj_game_map)
+t_game_map *ft_control_player(int keycode, t_game_map *inj_game_map)
 {
 	static t_game_map *game_map;
 	if (inj_game_map)
@@ -44,5 +48,10 @@ void ft_control_player(int keycode, t_game_map *inj_game_map)
 			&game_map->player_position_y);
 	}
 	if (game_map)
+	{
 		game_map = ft_keycode_action(game_map, keycode);
+		return (game_map);
+	}
+	return (NULL);
+
 }
