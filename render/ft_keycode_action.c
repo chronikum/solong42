@@ -6,21 +6,39 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 12:33:29 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:07:28 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 17:43:20 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+/*
+**	Checks if the new position would be a wall and returns 0
+**	if move is invalid. Returns 1 otherwise.
+*/
+static int	ft_check_valid_wall(t_game_map *game_map, int x, int y)
+{
+	int line;
+	int count;
+
+	line = 0;
+	count = 0;
+	if (game_map->map_data[y / TILE_WIDTH][x / TILE_WIDTH] == '1')
+		return (0);
+	return (1);
+}
+
 static t_game_map	*ft_move_vertical(t_game_map *game_map, int dir)
 {
-	game_map->player_position_y += dir * TILE_WIDTH;
+	if (ft_check_valid_wall(game_map, game_map->player_position_x, game_map->player_position_y + (TILE_WIDTH * dir)))
+		game_map->player_position_y += dir * TILE_WIDTH;
 	return (game_map);
 }
 
 static t_game_map	*ft_move_horizontal(t_game_map *game_map, int dir)
 {
-	game_map->player_position_x += dir * TILE_WIDTH;
+	if (ft_check_valid_wall(game_map, game_map->player_position_x + (TILE_WIDTH * dir), game_map->player_position_y))
+		game_map->player_position_x += dir * TILE_WIDTH;
 	return (game_map);
 }
 
