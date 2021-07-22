@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:00:32 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:33:33 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 20:00:11 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,16 @@ int	ft_check_is_wall(char *wall)
 int		ft_check_filename(char *file_name)
 {
 	char **file_p;
+	int			f;
 
+	f = 0;
 	if (!ft_strchr(file_name, '.'))
-		return (0);
+		f = 0;
 	file_p = ft_split((const char *) file_name, '.');
 	if (ft_strncmp((const char *) file_p[1], "ber", 4) == 0)
-		return (1);
+		f = 1;
 	free(file_p);
-	return (0);
+	return (f);
 }
 
 /*

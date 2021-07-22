@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 19:54:42 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/22 20:05:03 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 	linecount = 0;
 	fd = open(fn, O_RDONLY);
 	c = malloc(sizeof(char) * 100);
-	ret = malloc(sizeof(char **) * 1);
+	ret = malloc(sizeof(char **) * 100);
 	if (!c || fd == -1 || !ret)
 		return (NULL);
 	last_state = get_next_line(fd, &c);
