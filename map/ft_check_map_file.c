@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:45:44 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 17:18:24 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:28:43 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,32 +37,22 @@ static int			ft_check_length(t_game_map *game_map)
 }
 
 /*
-**	Checks if there is exactly one exit.
-**	If there is no exit or more than one,
-**	this will result in the result being 0
+**	Checks if there is atleast one exit.
 */
-static unsigned long	ft_check_exit(t_game_map *game_map)
+static int	ft_check_exit(t_game_map *game_map)
 {
 	int		count;
-	char	*position;
-	char	*position2;
 	char	*line;
 
-	position = 0;
 	count = 0;
-	position2 = 0;
 	while (count <= game_map->map_height)
 	{
 		line = game_map->map_data[count];
-		if (position)
-			position2 = ft_singlelinechr(line, 'E');
-		if (!position)
-			position = ft_singlelinechr(line, 'E');
-		if (position2)
-			return (0);
+		if (ft_strchr(line, 'E'))
+			return (1);
 		count++;
 	}
-	return (!!position);
+	return (0);
 }
 
 /*
