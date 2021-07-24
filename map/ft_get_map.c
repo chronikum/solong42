@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 20:05:03 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:18:45 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 		ret = ft_realloc((void *) ret, sizeof(char **) * (*he + 1));
 		last_state = get_next_line(fd, &c);
 	}
-	ft_printf("Counted height %d\n", (*he));
-	ft_printf("Counted length %d\n", (*le));
-	ft_printf("Linecount from file: %d\n", linecount);
 	ret[*he] = c;
 	return (ret);
 }
@@ -79,5 +76,6 @@ t_game_map *ft_get_map(int argc, char *argv[])
 			return (game_map);
 		return (NULL);
 	}
+	free(game_map);
 	return (NULL);
 }

@@ -6,11 +6,32 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:53:21 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 19:01:50 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:20:23 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+/*
+**	Checks if there is a tile
+**	on the current player position
+*/
+static t_game_map	*ft_check_tile(t_game_map *game_map)
+{
+	int	x;
+	int	y;
+
+	y = game_map->player_position_y / TILE_WIDTH;
+	x = game_map->player_position_x / TILE_WIDTH;
+	if (game_map->map_data[y][x] == 'E')
+		ft_printf("EXIT!");
+	if (game_map->map_data[y][x] == 'C')
+	{
+		game_map->map_data[y][x] = '0';
+		game_map->game_score++;
+	}
+	return (game_map);
+}
 
 /*
 **	Controls the player. Keycodes determine according
@@ -34,8 +55,8 @@ t_game_map *ft_control_player(int keycode, t_game_map *inj_game_map)
 	if (game_map)
 	{
 		game_map = ft_keycode_action(game_map, keycode);
-		return (game_map);
+		game_map = ft_check_tile(game_map);
 	}
-	return (NULL);
+	return (game_map);
 
 }

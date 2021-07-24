@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 18:57:50 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:17:32 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ static int	key_hook(int keycode, t_render_v **vars)
 	static t_game_map *game_map;
 	static t_render_v	*varsm;
 	if ((*vars))
-	{
-		ft_printf("SET VARIABLE VARS\n");
 		varsm = (*vars);
-	}
 	if (keycode == 53)
 	{
 		mlx_destroy_window((*vars)->mlx, (*vars)->win);

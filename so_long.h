@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:18:08 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 16:21:30 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_game_map
 	int		map_length;
 	int		player_position_x;
 	int		player_position_y;
+	int		game_score;
 	char	**map_data;
 }	t_game_map;
 

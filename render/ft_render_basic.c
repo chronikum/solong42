@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 17:52:03 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:21:48 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 			char_counter++;
 			x += TILE_WIDTH;
 		}
-		ft_putchar('\n');
 		y += TILE_WIDTH;
 		count++;
 	}
@@ -97,6 +96,7 @@ void		ft_render_basic(t_game_map *game_map, t_render_v **vars)
 		{
 			ft_clear_content(vars);
 			ft_draw_content(vars, game_map);
+			mlx_string_put((*vars)->mlx, (*vars)->win, 10, 10, 0xFE6500, ft_itoa(game_map->game_score));
 		}
 	}
 }
