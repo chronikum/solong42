@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 09:16:19 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 19:08:49 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 18:21:19 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*ft_strjoin_free_s1(char const *s1, char const *s2)
 	ft_memcpy(&d[ft_strlen((char *) s1)], s2, ft_strlen((char *) s2));
 	ft_memcpy(&d[ft_strlen((char *) s1)], s2, ft_strlen((char *) s2));
 	d[size - 1] = '\0';
-	free((char *)s1);
+	free((char *) s1);
 	return (d);
 }
 

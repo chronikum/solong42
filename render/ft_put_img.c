@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_put_img.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 19:34:30 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 18:22:10 by jfritz           ###   ########.fr       */
+/*   Created: 2021/07/24 18:28:01 by jfritz            #+#    #+#             */
+/*   Updated: 2021/07/24 18:29:44 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../so_long.h"
 
-void	*ft_realloc(void *src, size_t size)
+void	ft_put_img(t_render_v **vars, char *p, int x, int y)
 {
-	void	*dst;
+	void	*img;
+	int pos[2];
 
-	dst = malloc(size);
-	if (!dst)
-	{
-		free(src);
-		return (NULL);
-	}
-	if (!src)
-	{
-		free(dst);
-		return (NULL);
-	}
-	ft_memmove(dst, src, size);
-	free(src);
-	return (dst);
+	img = mlx_xpm_file_to_image((*vars)->mlx, p, &pos[0], &pos[1]);
+	mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
+	free(img);
 }

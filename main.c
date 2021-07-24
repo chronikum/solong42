@@ -6,17 +6,17 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 17:48:19 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 18:25:21 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
 
-int	ft_exit_with_error()
+static int	ft_exit_with_error()
 {
 	ft_printf("Error");
-	exit(1);
+	return (1);
 }
 
 /*

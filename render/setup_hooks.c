@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 18:08:34 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 18:23:01 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 */
 static int	key_hook(int keycode, t_render_v **vars)
 {	
-	static t_game_map *game_map;
+	static t_game_map	*game_map;
 	static t_render_v	*varsm;
+
 	if ((*vars))
 		varsm = (*vars);
 	if (keycode == 53)
@@ -45,8 +46,8 @@ static int	key_hook(int keycode, t_render_v **vars)
 static t_render_v	*ft_init_window(t_game_map *game_map)
 {
 	t_render_v	*vars;
-	int	w_width;
-	int w_height;
+	int			w_width;
+	int			w_height;
 
 	vars = malloc(sizeof(t_render_v));
 	if (!vars)
@@ -56,7 +57,8 @@ static t_render_v	*ft_init_window(t_game_map *game_map)
 		return (NULL);
 	w_width = ft_window_width(game_map);
 	w_height = ft_window_height(game_map);
-	vars->win = mlx_new_window(vars->mlx, w_width, w_height, "so_long game");
+	vars->win = mlx_new_window(vars->mlx, w_width, w_height, "jfritz game");
+	ft_render_basic(game_map, &vars);
 	mlx_key_hook(vars->win, key_hook, &vars);
 	mlx_loop(vars->mlx);
 	key_hook(-1, &vars);
@@ -65,8 +67,8 @@ static t_render_v	*ft_init_window(t_game_map *game_map)
 
 t_render_v	*ft_start_render(t_game_map *game_map)
 {
-	t_render_v *vars;
+	t_render_v	*vars;
+
 	vars = ft_init_window(game_map);
-	ft_render_basic(game_map, &vars);
 	return (vars);
 }

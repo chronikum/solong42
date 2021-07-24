@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:53:21 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 17:57:10 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 18:17:17 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static t_game_map	*ft_game_quit(t_game_map *game_map)
 {
-	ft_printf("The game is over!");
 	game_map->game_over = 1;
 	return (game_map);
 }

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 18:08:09 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 18:32:29 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,49 +17,42 @@ static void	ft_clear_content(t_render_v **vars)
 	mlx_clear_window((*vars)->mlx, (*vars)->win);
 }
 
-static void ft_put_player(t_render_v **vars, t_game_map *game_map)
+static void	ft_put_player(t_render_v **vars, t_game_map *game_map)
 {
-	char	*marvin = "./assets/Marvin80.xpm";
+	char	*marvin;
 	int		img_width;
 	int		img_height;
 	void	*img;
+	int 	pos[2];
+
+	marvin =  "./assets/Marvin80.xpm";
+	pos[0] = game_map->player_position_x;
+	pos[1] = game_map->player_position_y;
 	
 	img = mlx_xpm_file_to_image((*vars)->mlx, marvin, &img_width, &img_height);
-	mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, game_map->player_position_x, game_map->player_position_y);
+	mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, pos[0], pos[1]);
 }
 
-static void ft_draw_tile(char type, t_render_v **vars, int x, int y)
+static void	ft_draw_tile(char type, t_render_v **vars, int x, int y)
 {
-	char	*wall = "./assets/wall80.xpm";
-	char	*exit = "./assets/exit80.xpm";
-	char	*collectable = "./assets/collectable80.xpm";
-	int		img_width;
-	int		img_height;
-	void	*img;
+	char	*wall;
+	char	*exit;
+	char	*collectable;
+
+	wall =  "./assets/wall80.xpm";
+	exit = "./assets/exit80.xpm";
+	collectable = "./assets/collectable80.xpm";
 	
 	if (type == '1')
-	{
-		img = mlx_xpm_file_to_image((*vars)->mlx, wall, &img_width, &img_height);
-		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
-		free(img);
-	}
+		ft_put_img(vars, wall, x, y);
 	if (type == 'C')
-	{
-		img = mlx_xpm_file_to_image((*vars)->mlx, collectable, &img_width, &img_height);
-		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
-		free(img);
-	}
+		ft_put_img(vars, collectable, x, y);
 	if (type == 'E')
-	{
-		img = mlx_xpm_file_to_image((*vars)->mlx, exit, &img_width, &img_height);
-		mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, x, y);
-		free(img);
-	}
+		ft_put_img(vars, exit, x, y);
 }
 
 static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 {
-	static int w_progress = 0;
 	int count;
 	int char_counter;
 	char current;
@@ -72,7 +65,6 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 	y = 0;
 	while (count <= game_map->map_height && vars)
 	{
-		w_progress = 0;
 		char_counter = 0;
 		x = 0;
 		while (game_map->map_data[count][char_counter] != 0)
