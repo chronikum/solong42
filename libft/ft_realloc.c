@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:34:30 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 19:41:13 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:57:33 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void	*ft_realloc(void *src, size_t size)
 		return (NULL);
 	}
 	if (!src)
+	{
+		free(dst);
 		return (NULL);
+	}
 	ft_memmove(dst, src, size);
 	free(src);
 	return (dst);

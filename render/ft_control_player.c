@@ -6,11 +6,18 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:53:21 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 17:20:23 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 17:57:10 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+static t_game_map	*ft_game_quit(t_game_map *game_map)
+{
+	ft_printf("The game is over!");
+	game_map->game_over = 1;
+	return (game_map);
+}
 
 /*
 **	Checks if there is a tile
@@ -24,7 +31,10 @@ static t_game_map	*ft_check_tile(t_game_map *game_map)
 	y = game_map->player_position_y / TILE_WIDTH;
 	x = game_map->player_position_x / TILE_WIDTH;
 	if (game_map->map_data[y][x] == 'E')
-		ft_printf("EXIT!");
+	{
+		if (ft_game_end(game_map))
+			return ft_game_quit(game_map);
+	}
 	if (game_map->map_data[y][x] == 'C')
 	{
 		game_map->map_data[y][x] = '0';

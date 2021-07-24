@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:00:32 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 20:00:11 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 18:03:33 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,19 @@ int	ft_check_is_wall(char *wall)
 */
 int		ft_check_filename(char *file_name)
 {
-	char **file_p;
-	int			f;
-
-	f = 0;
-	if (!ft_strchr(file_name, '.'))
-		f = 0;
-	file_p = ft_split((const char *) file_name, '.');
-	if (ft_strncmp((const char *) file_p[1], "ber", 4) == 0)
-		f = 1;
-	free(file_p);
-	return (f);
+	int			len;
+	const char 	*start;
+	
+	len = ft_strlen(file_name);
+	start = (const char *) &file_name[(len - 4)];
+	if (ft_strncmp(start, ".ber", 4) == 0)
+		return (1);
+	return (0);
 }
 
 /*
-** Writes the player position in given
-** parameters x and y.
-** It will also update the player position,
-** when called
+**	Writes the player position in given
+**	parameters x and y.
 */
 void	ft_find_player(t_game_map *game_map, 
 	int *x, int *y)

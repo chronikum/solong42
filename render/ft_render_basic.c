@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 17:21:48 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 18:08:09 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,16 @@ void		ft_render_basic(t_game_map *game_map, t_render_v **vars)
 {
 	if (game_map->map_data && vars)
 	{
-		if ((*vars)->win && (*vars)->mlx)
+		if (game_map->game_over)
+		{
+			ft_clear_content(vars);
+			mlx_string_put((*vars)->mlx, (*vars)->win, ft_wwc(game_map), ft_whc(game_map), 0xFE6500, "GAME OVER!");
+		}
+		else if ((*vars)->win && (*vars)->mlx)
 		{
 			ft_clear_content(vars);
 			ft_draw_content(vars, game_map);
-			mlx_string_put((*vars)->mlx, (*vars)->win, 10, 10, 0xFE6500, ft_itoa(game_map->game_score));
+			mlx_string_put((*vars)->mlx, (*vars)->win, 10, 10, 0xFE6500, ft_highscore_text(game_map));
 		}
 	}
 }
