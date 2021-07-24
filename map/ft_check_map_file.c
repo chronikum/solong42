@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:45:44 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 19:28:43 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:35:28 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,20 @@ static int			ft_check_length(t_game_map *game_map)
 */
 static int	ft_check_exit(t_game_map *game_map)
 {
+	int		exit_count;
 	int		count;
 	char	*line;
 
 	count = 0;
+	exit_count = 0;
 	while (count <= game_map->map_height)
 	{
 		line = game_map->map_data[count];
 		if (ft_strchr(line, 'E'))
-			return (1);
+			exit_count++;
 		count++;
 	}
-	return (0);
+	return (exit_count);
 }
 
 /*
@@ -116,9 +118,10 @@ static int	ft_check_walls(t_game_map *game_map)
 /*
 **	This checks the map struct for validity and rules:
 **  - All lines have same length
-**  - Theres one player symbol
-**  - It is surrounded by walls
-**  - There is one exit
+**  - Theres exactly one player symbol
+**  - The map is surrounded by walls
+**  - There is atleast one exit
+**	- There is atleast one collectable
 */
 int	ft_check_map_data(t_game_map *game_map)
 {
@@ -128,7 +131,9 @@ int	ft_check_map_data(t_game_map *game_map)
 		return (0);
 	if (!ft_check_player(game_map))
 		return (0);
-	if (!ft_check_exit(game_map))
+	if (ft_check_exit(game_map) == 0)
+		return (0);
+	if (ft_max_score(game_map) == 0)
 		return (0);
 	return (1);
 }
