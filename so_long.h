@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 18:29:55 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:23:15 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_game_map
 	int		max_score;
 	char	**map_data;
 	int		game_over;
+	int		steps;
 }	t_game_map;
 
 typedef struct	s_render_v {
@@ -58,6 +59,5 @@ int			ft_whc(t_game_map *game_map);
 int			ft_wwc(t_game_map *game_map);
 
 int			ft_max_score(t_game_map *game_map);
-char		*ft_highscore_text(t_game_map *game_map);
 int			ft_game_end(t_game_map *game_map);
 #endif

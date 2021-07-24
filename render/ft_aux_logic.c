@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:28:29 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 17:44:20 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:22:47 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,4 @@ int	ft_max_score(t_game_map *game_map)
 	}
 
 	return (score);
-}
-
-/*
-**	Returns the text which is displayed
-**	in the upper left
-*/
-char *ft_highscore_text(t_game_map *game_map)
-{
-	char *part;
-
-	part = ft_strjoin(ft_itoa(game_map->game_score), "/");
-	return ft_strjoin(part, ft_itoa(game_map->max_score));
 }

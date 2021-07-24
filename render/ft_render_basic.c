@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 18:32:29 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:24:41 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,14 @@ static void	ft_draw_tile(char type, t_render_v **vars, int x, int y)
 	char	*wall;
 	char	*exit;
 	char	*collectable;
+	char	*bg;
 
-	wall =  "./assets/wall80.xpm";
+	wall =  "./assets/wall1_80.xpm";
 	exit = "./assets/exit80.xpm";
-	collectable = "./assets/collectable80.xpm";
+	collectable = "./assets/star.xpm";
+	bg = "./assets/bg.xpm";
 	
+	ft_put_img(vars, bg, x, y);
 	if (type == '1')
 		ft_put_img(vars, wall, x, y);
 	if (type == 'C')
@@ -93,7 +96,7 @@ void		ft_render_basic(t_game_map *game_map, t_render_v **vars)
 		{
 			ft_clear_content(vars);
 			ft_draw_content(vars, game_map);
-			mlx_string_put((*vars)->mlx, (*vars)->win, 10, 10, 0xFE6500, ft_highscore_text(game_map));
+			mlx_string_put((*vars)->mlx, (*vars)->win, 10, 10, 0xFE6500, ft_itoa(game_map->steps));
 		}
 	}
 }
