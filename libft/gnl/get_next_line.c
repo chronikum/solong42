@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 09:16:19 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 18:21:19 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:38:28 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	get_next_line(int fd, char **line)
 		buffer[result_int] = '\0';
 		ft_set_rprogress(&rprogress[fd], buffer);
 		if (ft_strchr(rprogress[fd], '\n'))
-			break;
+			break ;
 		result_int = read(fd, buffer, BUFFER_SIZE);
 	}
 	free(buffer);
