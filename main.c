@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 12:57:33 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 13:31:54 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_free_stuff(t_game_map **game_map, t_render_v **vars)
 
 	if (game_mapm && varsm && (!game_map && !vars))
 	{
+		free((*game_mapm)->map_data);
 		free((*game_mapm));
 		free((*varsm));
-		// game_mapm = NULL;
+		game_mapm = NULL;
 		varsm = NULL;
-		exit(0);
 	}
 	if (game_map)
 		game_mapm = game_map;
@@ -54,12 +54,15 @@ int	main(int argc, char *argv[])
 	
 	if (!ft_get_map(argc, argv, &game_map))
 	{
+		free(game_map);
 		ft_exit_with_error();
 		return (0);
 	}
 	ft_free_stuff(&game_map, NULL);
 	if (!game_map)
+	{
 		return (ft_exit_with_error());
+	}
 	game_map->game_score = 0;
 	game_map->game_over = 0;
 	game_map->steps = 0;

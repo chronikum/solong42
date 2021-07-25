@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 12:57:25 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 13:47:42 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,23 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 	*le = 0;
 	linecount = 0;
 	fd = open(fn, O_RDONLY);
-	ret = malloc(sizeof(char **) * 100);
-	if (fd == -1 || !ret)
+	ret = malloc(sizeof(char **) * 1);
+	if (fd == -1 && ret)
+	{
+		free(ret);
+		return (NULL);
+	}
+	if (!ret)
 		return (NULL);
 	last_state = get_next_line(fd, &ret[*he]);
 	while (last_state == 1)
 	{
 		*le = ft_strlen(ret[*he]);
 		(*he)++;
-		ret = ft_realloc((void *) ret, sizeof(char **) * (*he + 1));
+		ret = ft_realloc((void **) &ret, sizeof(char **) * (*he + 1));
 		last_state = get_next_line(fd, &ret[*he]);
 	}
 	close(fd);
-	ret[*he] = ret[*he];
 	return (ret);
 }
 
@@ -85,7 +89,6 @@ int	ft_get_map(int argc, char *argv[], t_game_map **game_map)
 		(*game_map)->map_height = map_h;
 		(*game_map)->map_length = map_l;
 		(*game_map)->map_data = map_data;
-		(*game_map)->map_data_p = &map_data;
 		(*game_map)->max_score = ft_max_score((*game_map));
 		if (ft_check_map_data((*game_map)))
 			return (1);

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 12:42:32 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 13:08:42 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	key_hook(int keycode, t_render_v **vars)
 	{
 		mlx_destroy_window((*vars)->mlx, (*vars)->win);
 		ft_free_stuff(NULL, NULL);
+		exit(0);
 		return (0);
 	}
 	if (varsm)

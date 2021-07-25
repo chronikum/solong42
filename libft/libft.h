@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 13:36:19 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/22 19:37:29 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 13:45:11 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ void	ft_putunlonglong(unsigned long long n, int fd);
 int		ft_put_hex(unsigned long long p, int u);
 
 int		get_next_line(int fd, char **line);
-void	*ft_realloc(void *src, size_t size);
+void	*ft_realloc(void **src, size_t size);
 
 #endif
