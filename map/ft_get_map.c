@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 16:29:03 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 16:45:30 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ static int	ft_read_map_file(char *fn, int *he, int *le, t_game_map **map)
 	return (1);
 }
 
+/*
+**	Free the map data
+*/
 void	ft_free_map_data(char ***map_data, int size)
 {
 	int	count;
