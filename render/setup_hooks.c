@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 11:57:48 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:34:01 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ static int	exit_hook()
 {
 	ft_free_stuff(NULL, NULL);
 	exit(0);
+}
+
+void	ft_build_img(t_game_map **map, t_render_v **vars)
+{
+	ft_star_image(vars, map);
+	ft_wall_image(vars, map);
+	ft_exit_image(vars, map);
+	ft_bg_image(vars, map);
 }
 
 /*
@@ -65,6 +73,7 @@ static t_render_v	*ft_init_window(t_game_map *game_map)
 	w_width = ft_window_width(game_map);
 	w_height = ft_window_height(game_map);
 	vars->win = mlx_new_window(vars->mlx, w_width, w_height, "jfritz game");
+	ft_build_img(&game_map, &vars);
 	ft_render_basic(game_map, &vars);
 	ft_free_stuff(NULL, &vars);
 	mlx_key_hook(vars->win, key_hook, &vars);

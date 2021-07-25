@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 11:57:36 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:19:59 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ typedef struct s_game_map
 	char	**map_data;
 	int		game_over;
 	int		steps;
+	void	*wall;
+	void	*exit;
+	void	*player;
+	void	*bg;
+	void	*star;
 }	t_game_map;
 
 typedef struct	s_render_v {
@@ -51,7 +56,7 @@ t_game_map	*ft_keycode_action(t_game_map *game_map, int keycode);
 
 void		ft_render_basic(t_game_map *game_map, t_render_v **vars);
 
-void		ft_put_img(t_render_v **vars, char *p, int x, int y);
+void		ft_put_img(t_render_v **vars, void *p, int x, int y);
 
 int			ft_window_height(t_game_map *game_map);
 int			ft_window_width(t_game_map *game_map);
@@ -64,9 +69,9 @@ int			ft_game_end(t_game_map *game_map);
 void	ft_free_stuff(t_game_map **game_map, t_render_v **vars);
 void	ft_free_map_data(char ***map_data, int size);
 
-void	*ft_wall_image(t_render_v **vars);
-void	*ft_star_image(t_render_v **vars);
-void	*ft_bg_image(t_render_v **vars);
-void	*ft_exit_image(t_render_v **vars);
+void	ft_wall_image(t_render_v **vars, t_game_map **map);
+void	ft_star_image(t_render_v **vars, t_game_map **map);
+void	ft_exit_image(t_render_v **vars, t_game_map **map);
+void	ft_bg_image(t_render_v **vars, t_game_map **map);
 
 #endif

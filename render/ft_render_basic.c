@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 11:46:57 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:33:33 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,15 @@ static void	ft_put_player(t_render_v **vars, t_game_map *game_map)
 	free(img);
 }
 
-static void	ft_draw_tile(char type, t_render_v **vars, int x, int y)
+static void	ft_tile(char t, t_render_v **v, int *pos, t_game_map **map)
 {
-	char	*wall;
-	char	*exit;
-	char	*star;
-	char	*bg;
-
-	wall = ft_wall_image(vars);
-	exit = ft_exit_image(vars);
-	star = ft_star_image(vars);
-	bg = ft_bg_image(vars);
-	ft_put_img(vars, bg, x, y);
-	if (type == '1')
-		ft_put_img(vars, wall, x, y);
-	if (type == 'C')
-		ft_put_img(vars, star, x, y);
-	if (type == 'E')
-		ft_put_img(vars, exit, x, y);
+	ft_put_img(v, (*map)->bg, pos[0], pos[1]);
+	if (t == '1')
+		ft_put_img(v, (*map)->wall, pos[0], pos[1]);
+	if (t == 'C')
+		ft_put_img(v, (*map)->star, pos[0], pos[1]);
+	if (t == 'E')
+		ft_put_img(v, (*map)->exit, pos[0], pos[1]);
 }
 
 static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
@@ -58,25 +49,24 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 	int		count;
 	int		char_counter;
 	char	current;
-	int		x;
-	int		y;
+	int pos[2];
 
 	count = 0;
 	char_counter = 0;
-	x = 0;
-	y = 0;
+	pos[0] = 0;
+	pos[1] = 0;
 	while (count <= game_map->map_height && vars)
 	{
 		char_counter = 0;
-		x = 0;
+		pos[0] = 0;
 		while (game_map->map_data[count][char_counter] != 0)
 		{
 			current = game_map->map_data[count][char_counter];
-			ft_draw_tile(current, vars, x, y);
+			ft_tile(current, vars, pos, &game_map);
 			char_counter++;
-			x += TILE_WIDTH;
+			pos[0] += TILE_WIDTH;
 		}
-		y += TILE_WIDTH;
+		pos[1] += TILE_WIDTH;
 		count++;
 	}
 	ft_put_player(vars, game_map);
