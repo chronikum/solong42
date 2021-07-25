@@ -6,32 +6,30 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 10:39:01 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 11:58:10 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
 
-void	ft_free_stuff(t_game_map **game_map, t_render_v **vars, char ***gd)
+void	ft_free_stuff(t_game_map **game_map, t_render_v **vars)
 {
 	static t_game_map *game_mapm;
 	static t_render_v *varsm;
-	static char **gdm;
 
 	if (game_mapm && varsm && (!game_map && !vars))
 	{
-		ft_printf("DESTROYING");
 		free(game_mapm);
 		free(varsm);
+		game_mapm = NULL;
+		varsm = NULL;
 		exit(0);
 	}
 	if (game_map)
 		game_mapm = (*game_map);
 	if (vars)
 		varsm = (*vars);
-	if (gd)
-		gdm = (*gd);
 }
 
 static int	ft_exit_with_error()
@@ -53,13 +51,13 @@ int	ft_start_game(t_game_map *game_map)
 int	main(int argc, char *argv[])
 {
 	t_game_map *game_map;
-
+	
 	if (!ft_get_map(argc, argv, &game_map))
 	{
 		ft_exit_with_error();
 		return (0);
 	}
-	ft_free_stuff(&game_map, NULL, NULL);
+	ft_free_stuff(&game_map, NULL);
 	if (!game_map)
 		return (ft_exit_with_error());
 	game_map->game_score = 0;

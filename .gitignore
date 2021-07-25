@@ -11,3 +11,4 @@ test.ber1
 .gitignore
 valgrind-out.txt
 tasks.json
+run.sh

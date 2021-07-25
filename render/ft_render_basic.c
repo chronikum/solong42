@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 08:17:57 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 11:46:57 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ static void	ft_draw_tile(char type, t_render_v **vars, int x, int y)
 {
 	char	*wall;
 	char	*exit;
-	char	*collectable;
+	char	*star;
 	char	*bg;
 
-	wall = "./assets/wall1_80.xpm";
-	exit = "./assets/exit80.xpm";
-	collectable = "./assets/star.xpm";
-	bg = "./assets/bg.xpm";
+	wall = ft_wall_image(vars);
+	exit = ft_exit_image(vars);
+	star = ft_star_image(vars);
+	bg = ft_bg_image(vars);
 	ft_put_img(vars, bg, x, y);
 	if (type == '1')
 		ft_put_img(vars, wall, x, y);
 	if (type == 'C')
-		ft_put_img(vars, collectable, x, y);
+		ft_put_img(vars, star, x, y);
 	if (type == 'E')
 		ft_put_img(vars, exit, x, y);
 }
