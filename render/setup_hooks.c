@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 12:34:01 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:42:32 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_build_img(t_game_map **map, t_render_v **vars)
 	ft_wall_image(vars, map);
 	ft_exit_image(vars, map);
 	ft_bg_image(vars, map);
+	ft_marvin_img(vars, map);
 }
 
 /*
@@ -61,8 +62,8 @@ static int	key_hook(int keycode, t_render_v **vars)
 static t_render_v	*ft_init_window(t_game_map *game_map)
 {
 	t_render_v	*vars;
-	int			w_width;
-	int			w_height;
+	int			ww;
+	int			wh;
 
 	vars = malloc(sizeof(t_render_v));
 	if (!vars)
@@ -70,12 +71,13 @@ static t_render_v	*ft_init_window(t_game_map *game_map)
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
 		return (NULL);
-	w_width = ft_window_width(game_map);
-	w_height = ft_window_height(game_map);
-	vars->win = mlx_new_window(vars->mlx, w_width, w_height, "jfritz game");
+	ww = ft_window_width(game_map);
+	wh = ft_window_height(game_map);
+	vars->win = mlx_new_window(vars->mlx, ww, wh, "jfritz solong");
 	ft_build_img(&game_map, &vars);
 	ft_render_basic(game_map, &vars);
 	ft_free_stuff(NULL, &vars);
+	ft_free_stuff(&game_map, NULL);
 	mlx_key_hook(vars->win, key_hook, &vars);
 	mlx_hook(vars->win, 17, 0, exit_hook, &vars);
 	mlx_loop(vars->mlx);

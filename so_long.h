@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 12:19:59 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:40:50 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,10 @@ typedef struct s_game_map
 	void	*player;
 	void	*bg;
 	void	*star;
+	void	*marvin;
 }	t_game_map;
 
-typedef struct	s_render_v {
+typedef struct s_render_v {
 	void	*mlx;
 	void	*win;
 }	t_render_v;
@@ -66,12 +67,13 @@ int			ft_wwc(t_game_map *game_map);
 int			ft_max_score(t_game_map *game_map);
 int			ft_game_end(t_game_map *game_map);
 
-void	ft_free_stuff(t_game_map **game_map, t_render_v **vars);
-void	ft_free_map_data(char ***map_data, int size);
+void		ft_free_stuff(t_game_map **game_map, t_render_v **vars);
+void		ft_free_map_data(char ***map_data, int size);
 
-void	ft_wall_image(t_render_v **vars, t_game_map **map);
-void	ft_star_image(t_render_v **vars, t_game_map **map);
-void	ft_exit_image(t_render_v **vars, t_game_map **map);
-void	ft_bg_image(t_render_v **vars, t_game_map **map);
+void		ft_wall_image(t_render_v **vars, t_game_map **map);
+void		ft_star_image(t_render_v **vars, t_game_map **map);
+void		ft_exit_image(t_render_v **vars, t_game_map **map);
+void		ft_bg_image(t_render_v **vars, t_game_map **map);
+void		ft_marvin_img(t_render_v **vars, t_game_map **map);
 
 #endif

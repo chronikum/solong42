@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 12:33:33 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 12:45:45 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,11 @@ static void	ft_clear_content(t_render_v **vars)
 
 static void	ft_put_player(t_render_v **vars, t_game_map *game_map)
 {
-	char	*marvin;
-	int		img_width;
-	int		img_height;
-	void	*img;
 	int		pos[2];
 
-	marvin = "./assets/Marvin80.xpm";
 	pos[0] = game_map->player_position_x;
 	pos[1] = game_map->player_position_y;
-	img = mlx_xpm_file_to_image((*vars)->mlx, marvin, &img_width, &img_height);
-	mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, pos[0], pos[1]);
-	free(img);
+	ft_put_img(vars, game_map->marvin, pos[0], pos[1]);
 }
 
 static void	ft_tile(char t, t_render_v **v, int *pos, t_game_map **map)
