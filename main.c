@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 15:56:50 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 16:20:34 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	main(int argc, char *argv[])
 
 	if (!ft_get_map(argc, argv, &game_map))
 	{
-		free(game_map);
 		ft_exit_with_error();
 		return (0);
 	}
