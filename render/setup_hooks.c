@@ -6,13 +6,13 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 13:08:42 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:50:29 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static int	exit_hook()
+void	exit_hook(void)
 {
 	ft_free_stuff(NULL, NULL);
 	exit(0);

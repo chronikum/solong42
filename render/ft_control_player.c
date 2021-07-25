@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:53:21 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 11:48:04 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:52:10 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_game_map	*ft_check_tile(t_game_map *game_map)
 	if (game_map->map_data[y][x] == 'E')
 	{
 		if (ft_game_end(game_map))
-			return ft_game_quit(game_map);
+			return (ft_game_quit(game_map));
 	}
 	if (game_map->map_data[y][x] == 'C')
 	{
@@ -52,9 +52,10 @@ static t_game_map	*ft_check_tile(t_game_map *game_map)
 **  in the map. This is being updated through the 
 **  ft_keycode_action function.
 */
-t_game_map *ft_control_player(int keycode, t_game_map *inj_game_map)
+t_game_map	*ft_control_player(int keycode, t_game_map *inj_game_map)
 {
-	static t_game_map *game_map;
+	static t_game_map	*game_map;
+
 	if (inj_game_map)
 	{
 		game_map = inj_game_map;

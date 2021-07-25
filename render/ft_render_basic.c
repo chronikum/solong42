@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 12:45:45 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:49:37 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 	int		count;
 	int		char_counter;
 	char	current;
-	int pos[2];
+	int		pos[2];
 
 	count = 0;
 	char_counter = 0;

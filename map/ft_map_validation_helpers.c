@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 09:00:32 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 18:03:33 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:56:29 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,16 @@ int	ft_check_is_wall(char *wall)
 	return (ft_strlen(wall) == count);
 }
 
-
 /**
 **	Check if the filename has
 **	a valid extension (.ber)
 **	If not, it returns 0.
 */
-int		ft_check_filename(char *file_name)
+int	ft_check_filename(char *file_name)
 {
 	int			len;
-	const char 	*start;
-	
+	const char	*start;
+
 	len = ft_strlen(file_name);
 	start = (const char *) &file_name[(len - 4)];
 	if (ft_strncmp(start, ".ber", 4) == 0)
@@ -48,12 +47,11 @@ int		ft_check_filename(char *file_name)
 **	Writes the player position in given
 **	parameters x and y.
 */
-void	ft_find_player(t_game_map *game_map, 
-	int *x, int *y)
+void	ft_find_player(t_game_map *game_map, int *x, int *y)
 {
-	int count;
-	char *line;
-	int xPos;
+	int		count;
+	char	*line;
+	int		xPos;
 
 	count = 0;
 	xPos = 0;
@@ -79,8 +77,8 @@ void	ft_find_player(t_game_map *game_map,
 */
 char	*ft_singlelinechr(char *line, char c)
 {
-	char *p;
-	char *pr;
+	char	*p;
+	char	*pr;
 
 	p = ft_strchr(line, c);
 	pr = ft_strrchr(line, c);

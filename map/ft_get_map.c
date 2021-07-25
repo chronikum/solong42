@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 15:45:07 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:55:34 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 ** sub functions for validity. Also gets
 ** metadata like length and height of the map.
 */
-static void ft_read_map_file(char *fn, int *he, int *le, t_game_map **map)
+static void	ft_read_map_file(char *fn, int *he, int *le, t_game_map **map)
 {
 	int		fd;
 	int		last_state;
-	int		linecount;
+	size_t	nsi;
 
 	*he = 0;
 	*le = 0;
-	linecount = 0;
 	fd = open(fn, O_RDONLY);
 	(*map)->map_data = malloc(sizeof(char **) * 1);
 	if (fd == -1 && (*map)->map_data)
@@ -40,19 +39,18 @@ static void ft_read_map_file(char *fn, int *he, int *le, t_game_map **map)
 	{
 		*le = ft_strlen((*map)->map_data[*he]);
 		(*he)++;
-		(*map)->map_data = ft_realloc((void **) &(*map)->map_data, 
-			sizeof(char **) * (*he + 1));
+		nsi = sizeof(char **) * (*he + 1);
+		(*map)->map_data = ft_realloc((void **) &(*map)->map_data, nsi);
 		last_state = get_next_line(fd, &(*map)->map_data[*he]);
 	}
 	close(fd);
 }
 
-void ft_free_map_data(char ***map_data, int size)
+void	ft_free_map_data(char ***map_data, int size)
 {
-	int count;
+	int	count;
 
 	count = 0;
-
 	while (count <= size)
 	{
 		free((*map_data)[count]);
