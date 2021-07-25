@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:45:44 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 19:07:57 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 19:12:35 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ static int	ft_check_walls(t_game_map *game_map)
 **  - The map is surrounded by walls
 **  - There is atleast one exit
 **	- There is atleast one collectable
+**	- Checks if there is any invalid symbol
 */
 int	ft_check_map_data(t_game_map *game_map)
 {
