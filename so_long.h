@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 09:20:21 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 10:39:21 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ int			ft_wwc(t_game_map *game_map);
 int			ft_max_score(t_game_map *game_map);
 int			ft_game_end(t_game_map *game_map);
 
-void	ft_free_stuff(t_game_map **game_map, t_render_v **vars);
+void	ft_free_stuff(t_game_map **game_map, t_render_v **vars, char ***gd);
 
 #endif
