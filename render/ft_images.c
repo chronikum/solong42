@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 11:34:06 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 16:03:46 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 18:36:29 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_wall_image(t_render_v **vars, t_game_map **map)
 	static void	*img;
 	int			pos[2];
 
-	wall = "./assets/wall1_80.xpm";
+	wall = "./assets/dirt.xpm";
 	if (!img)
 		img = mlx_xpm_file_to_image((*vars)->mlx, wall, &pos[0], &pos[1]);
 	(*map)->wall = img;
@@ -30,7 +30,7 @@ void	ft_star_image(t_render_v **vars, t_game_map **map)
 	static void	*img;
 	int			pos[2];
 
-	star = "./assets/star.xpm";
+	star = "./assets/diamond.xpm";
 	if (!img)
 		img = mlx_xpm_file_to_image((*vars)->mlx, star, &pos[0], &pos[1]);
 	(*map)->star = img;
@@ -54,7 +54,7 @@ void	ft_bg_image(t_render_v **vars, t_game_map **map)
 	static void	*img;
 	int			pos[2];
 
-	bg = "./assets/bg2.xpm";
+	bg = "./assets/stone.xpm";
 	if (!img)
 		img = mlx_xpm_file_to_image((*vars)->mlx, bg, &pos[0], &pos[1]);
 	(*map)->bg = img;
