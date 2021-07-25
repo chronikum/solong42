@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 09:30:55 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 09:39:09 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 static char	**ft_read_map_file(char *fn, int *he, int *le)
 {
 	int		fd;
-	char	*c;
 	char	**ret;
 	int		last_state;
 	int		linecount;
@@ -29,21 +28,19 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 	*le = 0;
 	linecount = 0;
 	fd = open(fn, O_RDONLY);
-	c = malloc(sizeof(char) * 100);
 	ret = malloc(sizeof(char **) * 100);
-	if (!c || fd == -1 || !ret)
+	if (fd == -1 || !ret)
 		return (NULL);
-	last_state = get_next_line(fd, &c);
+	last_state = get_next_line(fd, &ret[*he]);
 	while (last_state == 1)
 	{
-		*le = ft_strlen(c);
-		ret[*he] = c;
+		*le = ft_strlen(ret[*he]);
 		(*he)++;
 		ret = ft_realloc((void *) ret, sizeof(char **) * (*he + 1));
-		last_state = get_next_line(fd, &c);
+		last_state = get_next_line(fd, &ret[*he]);
 	}
 	close(fd);
-	ret[*he] = c;
+	ret[*he] = ret[*he];
 	return (ret);
 }
 
