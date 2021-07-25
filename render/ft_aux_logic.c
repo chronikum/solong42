@@ -6,12 +6,11 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:28:29 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 19:22:47 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:46:49 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
 
 /*
 **	Returns 1 if the game is over
@@ -29,9 +28,9 @@ int	ft_game_end(t_game_map *game_map)
 */
 int	ft_max_score(t_game_map *game_map)
 {
-	int score;
-	int count_y;
-	int count_x;
+	int	score;
+	int	count_y;
+	int	count_x;
 
 	score = 0;
 	count_y = 0;
@@ -47,6 +46,5 @@ int	ft_max_score(t_game_map *game_map)
 		}
 		count_y++;
 	}
-
 	return (score);
 }

@@ -9,3 +9,4 @@ invalid.txt
 so_long.a.dSYM/Contents/Info.plist
 test.ber1
 .gitignore
+valgrind-out.txt

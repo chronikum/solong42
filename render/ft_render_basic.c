@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 19:45:46 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 08:17:57 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	ft_put_player(t_render_v **vars, t_game_map *game_map)
 	pos[1] = game_map->player_position_y;
 	img = mlx_xpm_file_to_image((*vars)->mlx, marvin, &img_width, &img_height);
 	mlx_put_image_to_window((*vars)->mlx, (*vars)->win, img, pos[0], pos[1]);
+	free(img);
 }
 
 static void	ft_draw_tile(char type, t_render_v **vars, int x, int y)
@@ -103,7 +104,9 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 		else if (p[1] && p[0])
 		{
 			ft_draw_content(vars, game_map);
-			mlx_string_put(p[0], p[1], 10, 10, col, ft_itoa(game_map->steps));
+			go = ft_itoa(game_map->steps);
+			mlx_string_put(p[0], p[1], 10, 10, col, go);
+			free(go);
 		}
 	}
 }

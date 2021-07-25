@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 19:37:36 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 09:20:21 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct	s_render_v {
 	void	*win;
 }	t_render_v;
 
-t_game_map	*ft_get_map(int argc, char *argv[]);
+int			ft_get_map(int argc, char *argv[], t_game_map **game_map);
 int			ft_check_map_data(t_game_map *game_map);
 
 int			ft_check_is_wall(char *wall);
@@ -60,5 +60,7 @@ int			ft_wwc(t_game_map *game_map);
 
 int			ft_max_score(t_game_map *game_map);
 int			ft_game_end(t_game_map *game_map);
+
+void	ft_free_stuff(t_game_map **game_map, t_render_v **vars);
 
 #endif

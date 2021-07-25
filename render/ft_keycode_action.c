@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 12:33:29 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/24 19:24:23 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/24 19:46:56 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 */
 static int	ft_check_valid_wall(t_game_map *game_map, int x, int y)
 {
-	int line;
-	int count;
+	int	line;
+	int	count;
 
 	line = 0;
 	count = 0;
