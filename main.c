@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 13:31:54 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:45:57 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 void	ft_free_stuff(t_game_map **game_map, t_render_v **vars)
 {
-	static t_game_map **game_mapm;
-	static t_render_v **varsm;
+	static t_game_map	**game_mapm;
+	static t_render_v	**varsm;
+	int					maph;
 
 	if (game_mapm && varsm && (!game_map && !vars))
 	{
-		free((*game_mapm)->map_data);
+		maph = (*game_mapm)->map_height;
+		ft_free_map_data(&((*game_mapm)->map_data), maph);
 		free((*game_mapm));
 		free((*varsm));
 		game_mapm = NULL;

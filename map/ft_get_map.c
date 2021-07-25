@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 13:47:42 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 15:45:07 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 ** sub functions for validity. Also gets
 ** metadata like length and height of the map.
 */
-static char	**ft_read_map_file(char *fn, int *he, int *le)
+static void ft_read_map_file(char *fn, int *he, int *le, t_game_map **map)
 {
 	int		fd;
-	char	**ret;
 	int		last_state;
 	int		linecount;
 
@@ -28,24 +27,24 @@ static char	**ft_read_map_file(char *fn, int *he, int *le)
 	*le = 0;
 	linecount = 0;
 	fd = open(fn, O_RDONLY);
-	ret = malloc(sizeof(char **) * 1);
-	if (fd == -1 && ret)
+	(*map)->map_data = malloc(sizeof(char **) * 1);
+	if (fd == -1 && (*map)->map_data)
 	{
-		free(ret);
-		return (NULL);
+		free((*map)->map_data);
+		return ;
 	}
-	if (!ret)
-		return (NULL);
-	last_state = get_next_line(fd, &ret[*he]);
+	if (!(*map)->map_data)
+		return ;
+	last_state = get_next_line(fd, &(*map)->map_data[*he]);
 	while (last_state == 1)
 	{
-		*le = ft_strlen(ret[*he]);
+		*le = ft_strlen((*map)->map_data[*he]);
 		(*he)++;
-		ret = ft_realloc((void **) &ret, sizeof(char **) * (*he + 1));
-		last_state = get_next_line(fd, &ret[*he]);
+		(*map)->map_data = ft_realloc((void **) &(*map)->map_data, 
+			sizeof(char **) * (*he + 1));
+		last_state = get_next_line(fd, &(*map)->map_data[*he]);
 	}
 	close(fd);
-	return (ret);
 }
 
 void ft_free_map_data(char ***map_data, int size)
@@ -79,8 +78,8 @@ int	ft_get_map(int argc, char *argv[], t_game_map **game_map)
 	(*game_map) = malloc(sizeof(t_game_map));
 	if (argc != 1 && (*game_map) && ft_check_filename(argv[1]))
 	{
-		map_data = ft_read_map_file(argv[1], &map_h, &map_l);
-		if (!map_data)
+		ft_read_map_file(argv[1], &map_h, &map_l, game_map);
+		if ((*game_map)->map_data == NULL)
 		{
 			free((*game_map));
 			(*game_map) = NULL;
@@ -88,11 +87,10 @@ int	ft_get_map(int argc, char *argv[], t_game_map **game_map)
 		}
 		(*game_map)->map_height = map_h;
 		(*game_map)->map_length = map_l;
-		(*game_map)->map_data = map_data;
 		(*game_map)->max_score = ft_max_score((*game_map));
 		if (ft_check_map_data((*game_map)))
 			return (1);
-		ft_free_map_data(&map_data, map_h);
+		ft_free_map_data(&((*game_map)->map_data), map_h);
 	}
 	(*game_map) = NULL;
 	free((*game_map));
