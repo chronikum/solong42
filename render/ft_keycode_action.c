@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 12:33:29 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 15:51:23 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 16:04:26 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_game_map	*ft_move_vertical(t_game_map *game_map, int dir)
 	int	y;
 
 	x = game_map->player_position_x;
-	x = game_map->player_position_y;
+	y = game_map->player_position_y;
 	if (ft_check_vw(game_map, x, y + (TILE_WIDTH * dir)))
 	{
 		game_map->player_position_y += dir * TILE_WIDTH;
@@ -45,8 +45,11 @@ static t_game_map	*ft_move_vertical(t_game_map *game_map, int dir)
 
 static t_game_map	*ft_move_horizontal(t_game_map *game_map, int dir)
 {
+	int	x;
+	int	y;
+	
 	x = game_map->player_position_x;
-	x = game_map->player_position_y;
+	y = game_map->player_position_y;
 	if (ft_check_vw(game_map, x + (TILE_WIDTH * dir), y))
 	{
 		game_map->player_position_x += dir * TILE_WIDTH;

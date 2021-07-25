@@ -6,18 +6,27 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 15:50:29 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 16:06:29 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	exit_hook(void)
+/*
+**	This is the exit hook
+**	if the red cross is
+** 	being clicked
+*/
+static int	exit_hook(void)
 {
 	ft_free_stuff(NULL, NULL);
 	exit(0);
 }
 
+/*
+**	Loads all images
+**	in the t_game_struct
+*/
 void	ft_build_img(t_game_map **map, t_render_v **vars)
 {
 	ft_star_image(vars, map);

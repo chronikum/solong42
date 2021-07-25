@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 11:34:06 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 15:51:17 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 16:03:46 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_bg_image(t_render_v **vars, t_game_map **map)
 	static void	*img;
 	int			pos[2];
 
-	bg = "./assets/bg.xpm";
+	bg = "./assets/bg2.xpm";
 	if (!img)
 		img = mlx_xpm_file_to_image((*vars)->mlx, bg, &pos[0], &pos[1]);
 	(*map)->bg = img;
