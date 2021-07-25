@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 16:21:45 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/25 19:00:39 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 # include "libft/libft.h"
 
 # define TILE_WIDTH 80
+
+# define WALL "./assets/dirt.xpm"
+# define STAR "./assets/diamond.xpm"
+# define STONE "./assets/stone.xpm"
+# define EXIT "./assets/exit80.xpm"
 typedef struct s_game_map
 {
 	int		map_height;
@@ -48,6 +53,8 @@ int			ft_check_is_wall(char *wall);
 char		*ft_singlelinechr(char *line, char c);
 int			ft_check_filename(char *file_name);
 void		ft_find_player(t_game_map *game_map, int *x, int *y);
+
+int			ft_aux_check_map_file(t_game_map *t_game_map);
 
 t_render_v	*ft_start_render(t_game_map *game_map);
 

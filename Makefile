@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/18 13:43:08 by jfritz            #+#    #+#              #
-#    Updated: 2021/07/25 11:36:04 by jfritz           ###   ########.fr        #
+#    Updated: 2021/07/25 19:02:29 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ OBJS := $(*.o)
 
 SRC = main.c
 
-MAPTOOLS = ./map/ft_get_map.c ./map/ft_check_map_file.c ./map/ft_map_validation_helpers.c
+MAPTOOLS = ./map/ft_get_map.c ./map/ft_check_map_file.c ./map/ft_map_validation_helpers.c \
+./map/ft_aux_check_map_file.c
 
 RENDERSRC = ./render/setup_hooks.c ./render/ft_control_player.c ./render/ft_keycode_action.c ./render/ft_render_basic.c \
 ./render/ft_aux_window.c ./render/ft_aux_logic.c ./render/ft_put_img.c ./render/ft_images.c
