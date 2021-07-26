@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 07:44:28 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 09:55:24 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 13:09:39 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	ft_animate(t_game_map **m, t_render_v **v)
 	if (v)
 		vars = v;
 	loop++;
-	ft_printf("LOOP: %d\n", loop);
 	if (loop == 0 && (vars && m))
 		state1(m, vars);
 	if (loop == 1 && (vars && m))

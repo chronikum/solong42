@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 12:11:03 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 13:51:26 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@
 
 # define ENEMY1 "./assets/enemy1.xpm"
 # define ENEMY2 "./assets/enemy2.xpm"
+
+# define GAME_LOST "The owl catched you :("
+# define GAME_WON "You won!"
 
 # define ORANGE 0xFE6500
 typedef struct s_game_map

@@ -6,15 +6,15 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 13:03:33 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 13:49:53 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void ft_render_enemy(t_render_v **vars, t_game_map **map)
+static void	ft_render_enemy(t_render_v **vars, t_game_map **map)
 {
-	int		pos[2];
+	int			pos[2];
 	static int	rand;
 
 	rand = ft_ps_random() % 3;
@@ -91,7 +91,7 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 	p[0] = (*vars)->mlx;
 	p[1] = (*vars)->win;
 	go = "You won!";
-	if (game_map->map_data && vars)
+	if (game_map->map_data && vars && (!game_map->game_over))
 	{
 		mlx_clear_window((*vars)->mlx, (*vars)->win);
 		if ((!ft_game_over(&game_map, vars)) && p[1] && p[0])
