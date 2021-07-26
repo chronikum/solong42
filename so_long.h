@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 09:07:11 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 09:41:44 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define TILE_WIDTH 80
 
 # define WALL "./assets/baum1.xpm"
+# define WALL2 "./assets/baum2.xpm"
+# define WALL3 "./assets/baum3.xpm"
 # define STAR "./assets/flower.xpm"
 # define STONE "./assets/stone.xpm"
 # define EXIT "./assets/exit80.xpm"
@@ -41,6 +43,7 @@ typedef struct s_game_map
 	void	*bg;
 	void	*star;
 	void	*marvin;
+	int		drawP;
 }	t_game_map;
 
 typedef struct s_render_v {
@@ -88,6 +91,10 @@ void		ft_marvin_img(t_render_v **vars, t_game_map **map);
 void		ft_marvin2_img(t_render_v **vars, t_game_map **map);
 void		ft_marvin3_img(t_render_v **vars, t_game_map **map);
 void		ft_marvin4_img(t_render_v **vars, t_game_map **map);
+
+void	ft_tree1(t_render_v **vars, t_game_map **map);
+void	ft_tree2(t_render_v **vars, t_game_map **map);
+void	ft_tree3(t_render_v **vars, t_game_map **map);
 
 int			ft_animate(t_game_map **m, t_render_v **v);
 

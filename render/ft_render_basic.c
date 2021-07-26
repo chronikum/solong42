@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 08:03:46 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 09:45:06 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@ static void	ft_put_player(t_render_v **vars, t_game_map *game_map)
 
 static void	ft_tile(char t, t_render_v **v, int *pos, t_game_map **map)
 {
+	(*map)->drawP++;
 	ft_put_img(v, (*map)->bg, pos[0], pos[1]);
 	if (t == '1')
+	{
+		ft_tree1(v, map);
+		if ((*map)->drawP % 2)
+			ft_tree2(v, map);
+		if ((*map)->drawP % 3)
+			ft_tree3(v, map);
 		ft_put_img(v, (*map)->wall, pos[0], pos[1]);
+	}
 	if (t == 'C')
 		ft_put_img(v, (*map)->star, pos[0], pos[1]);
 	if (t == 'E')
@@ -46,6 +54,7 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 
 	count = 0;
 	char_counter = 0;
+	game_map->drawP = 0;
 	pos[0] = 0;
 	pos[1] = 0;
 	while (count <= game_map->map_height && vars)
