@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 10:38:55 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 10:40:50 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 13:03:39 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_enemy2(t_render_v **vars, t_game_map **map)
 	static void	*img;
 	int			pos[2];
 
-	bg = ENEMY1;
+	bg = ENEMY2;
 	if (!img)
 		img = mlx_xpm_file_to_image((*vars)->mlx, bg, &pos[0], &pos[1]);
 	(*map)->enemy = img;

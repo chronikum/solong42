@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 13:00:13 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 13:03:33 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 static void ft_render_enemy(t_render_v **vars, t_game_map **map)
 {
 	int		pos[2];
-	
+	static int	rand;
+
+	rand = ft_ps_random() % 3;
+	ft_enemy1(vars, map);
+	if (rand == 1)
+		ft_enemy2(vars, map);
 	pos[0] = ((*map)->enemyPos[0] * TILE_WIDTH);
 	pos[1] = ((*map)->enemyPos[1] * TILE_WIDTH);
 	ft_put_img(vars, (*map)->enemy, pos[0], pos[1]);
