@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/18 13:43:08 by jfritz            #+#    #+#              #
-#    Updated: 2021/07/26 10:45:44 by jfritz           ###   ########.fr        #
+#    Updated: 2021/07/26 11:55:23 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,13 @@ MAPTOOLS = ./map/ft_get_map.c ./map/ft_check_map_file.c ./map/ft_map_validation_
 
 RENDERSRC = ./render/setup_hooks.c ./render/ft_control_player.c ./render/ft_keycode_action.c ./render/ft_render_basic.c \
 ./render/ft_aux_window.c ./render/ft_aux_logic.c ./render/ft_put_img.c ./render/ft_images.c ./render/ft_character.c \
-./render/ft_trees.c
+./render/ft_trees.c ./render/ft_aux_render.c
 
 ANIMATESRC = ./animation/ft_animate.c
 
 RANDOMSRC = ./random/ft_seed.c
 
-ENEMYSRC = ./enemies/ft_img_enemy.c ./enemies/ft_put_enemy.c
+ENEMYSRC = ./enemies/ft_img_enemy.c ./enemies/ft_put_enemy.c ./enemies/ft_move_enemy.c
 
 LIBFTPATH = ./libft/
 

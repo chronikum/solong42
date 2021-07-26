@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 11:25:12 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 11:55:01 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 static void ft_render_enemy(t_render_v **vars, t_game_map **map)
 {
 	int		pos[2];
-
+	
+	
+	ft_move_enemy(map);
 	pos[0] = ((*map)->enemyPos[0] * TILE_WIDTH);
 	pos[1] = ((*map)->enemyPos[1] * TILE_WIDTH);
 	ft_put_img(vars, (*map)->enemy, pos[0], pos[1]);
@@ -56,11 +58,10 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 	char	current;
 	int		pos[2];
 
-	count = 0;
-	char_counter = 0;
-	game_map->drawP = 0;
+	ft_set_startv_render(&count, &char_counter);
 	pos[0] = 0;
 	pos[1] = 0;
+	game_map->drawP = 0;
 	while (count <= game_map->map_height && vars)
 	{
 		char_counter = 0;

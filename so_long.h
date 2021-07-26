@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 11:00:36 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 11:41:33 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_game_map	*ft_control_player(int keycode, t_game_map *inj_game_map);
 t_game_map	*ft_keycode_action(t_game_map *game_map, int keycode);
 
 void		ft_render_basic(t_game_map *game_map, t_render_v **vars);
+void		ft_set_startv_render(int *c, int *cc);
 
 void		ft_put_img(t_render_v **vars, void *p, int x, int y);
 
@@ -108,5 +109,6 @@ int			ft_animate(t_game_map **m, t_render_v **v);
 
 int			ft_ps_random();
 void		ft_put_enemy(t_game_map **map);
+void		ft_move_enemy(t_game_map **map);
 
 #endif
