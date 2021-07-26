@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 11:40:01 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 12:06:12 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:31:26 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	is_valid_y(int change, t_game_map **map)
 {
 	if (change < 0)
 		return (0);
-	if ((change - 1) >= (*map)->map_height)
+	if (change >= (*map)->map_height)
 		return (0);
 	return (1);
 }

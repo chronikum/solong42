@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 12:12:31 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:45:51 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static void ft_render_enemy(t_render_v **vars, t_game_map **map)
 {
 	int		pos[2];
 	
-	
-	ft_move_enemy(map);
 	pos[0] = ((*map)->enemyPos[0] * TILE_WIDTH);
 	pos[1] = ((*map)->enemyPos[1] * TILE_WIDTH);
 	ft_put_img(vars, (*map)->enemy, pos[0], pos[1]);
@@ -76,8 +74,8 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 		pos[1] += TILE_WIDTH;
 		count++;
 	}
-	ft_put_player(vars, game_map);
 	ft_render_enemy(vars, &game_map);
+	ft_put_player(vars, game_map);
 }
 
 void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
@@ -102,6 +100,7 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 			go = ft_itoa(game_map->steps);
 			mlx_string_put(p[0], p[1], 10, 10, ORANGE, go);
 			free(go);
+			ft_move_enemy(&game_map);
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 11:15:34 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:29:52 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	key_hook(int keycode, t_render_v **vars)
 		game_map = ft_control_player(keycode, NULL);
 		ft_render_basic(game_map, &varsm);
 	}
-	ft_printf("SEED: %d\n", ft_ps_random());
+	ft_ps_random();
 	return (1);
 }
 

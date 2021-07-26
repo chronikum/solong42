@@ -20,6 +20,7 @@ void	ft_put_enemy(t_game_map **map)
 		if (!(enemyPos[1] == ((*map)->player_position_y / TILE_WIDTH)))
 			enemySet++;
 		(*map)->enemyPos = enemyPos;
+		(*map)->enemySet = 1;
 	}
 	(*map)->enemyPos = enemyPos;
 }
