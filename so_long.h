@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 10:22:32 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 11:00:36 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # define STONE "./assets/stone.xpm"
 # define EXIT "./assets/exit80.xpm"
 
+# define ENEMY1 "./assets/enemy1.xpm"
+# define ENEMY2 "./assets/enemy2.xpm"
+
 # define ORANGE 0xFE6500
 typedef struct s_game_map
 {
@@ -42,8 +45,11 @@ typedef struct s_game_map
 	void	*player;
 	void	*bg;
 	void	*star;
+	void	*enemy;
 	void	*marvin;
 	int		drawP;
+	int		*enemyPos;
+	int		enemySet;
 }	t_game_map;
 
 typedef struct s_render_v {
@@ -96,8 +102,11 @@ void		ft_tree1(t_render_v **vars, t_game_map **map);
 void		ft_tree2(t_render_v **vars, t_game_map **map);
 void		ft_tree3(t_render_v **vars, t_game_map **map);
 
+void		ft_enemy1(t_render_v **vars, t_game_map **map);
+void		ft_enemy2(t_render_v **vars, t_game_map **map);
 int			ft_animate(t_game_map **m, t_render_v **v);
 
 int			ft_ps_random();
+void		ft_put_enemy(t_game_map **map);
 
 #endif

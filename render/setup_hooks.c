@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 10:22:52 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 11:15:34 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_build_img(t_game_map **map, t_render_v **vars)
 	ft_exit_image(vars, map);
 	ft_bg_image(vars, map);
 	ft_marvin_img(vars, map);
+	ft_enemy1(vars, map);
 	ft_animate(map, vars);
 }
 

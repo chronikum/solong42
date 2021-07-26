@@ -6,14 +6,15 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 10:03:43 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 10:24:02 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 11:09:02 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
 /*
-**	Gets called every frame and increases
+**	Gets called every frame
+**	and user inputs and increases
 **	seed. Technically, not random.
 **	Will provide a value which
 **	literally depends on the
@@ -28,5 +29,5 @@ int ft_ps_random()
 	seed++;
 	if (seed > 1000)
 		seed = 3;
-	return (seed % 10);
+	return (seed);
 }

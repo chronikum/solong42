@@ -6,15 +6,19 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 09:45:06 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 11:25:12 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static void	ft_clear_content(t_render_v **vars)
+static void ft_render_enemy(t_render_v **vars, t_game_map **map)
 {
-	mlx_clear_window((*vars)->mlx, (*vars)->win);
+	int		pos[2];
+
+	pos[0] = ((*map)->enemyPos[0] * TILE_WIDTH);
+	pos[1] = ((*map)->enemyPos[1] * TILE_WIDTH);
+	ft_put_img(vars, (*map)->enemy, pos[0], pos[1]);
 }
 
 static void	ft_put_player(t_render_v **vars, t_game_map *game_map)
@@ -72,6 +76,7 @@ static void	ft_draw_content(t_render_v **vars, t_game_map *game_map)
 		count++;
 	}
 	ft_put_player(vars, game_map);
+	ft_render_enemy(vars, &game_map);
 }
 
 void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
@@ -88,12 +93,14 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 	go = "Game Over!";
 	if (game_map->map_data && vars)
 	{
-		ft_clear_content(vars);
+		mlx_clear_window((*vars)->mlx, (*vars)->win);
 		if (game_map->game_over)
 			mlx_string_put(p[0], p[1], wc, wh, ORANGE, go);
 		else if (p[1] && p[0])
 		{
 			ft_animate(&game_map, vars);
+			ft_ps_random();
+			ft_put_enemy(&game_map);
 			ft_draw_content(vars, game_map);
 			go = ft_itoa(game_map->steps);
 			mlx_string_put(p[0], p[1], 10, 10, ORANGE, go);

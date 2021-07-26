@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 19:01:01 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 10:53:12 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char *argv[])
 	game_map->game_score = 0;
 	game_map->game_over = 0;
 	game_map->steps = 0;
+	ft_ps_random();
 	ft_control_player(-1, game_map);
 	ft_start_game(game_map);
 	return (0);
