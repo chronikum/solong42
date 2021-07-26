@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/18 13:43:08 by jfritz            #+#    #+#              #
-#    Updated: 2021/07/26 09:23:12 by jfritz           ###   ########.fr        #
+#    Updated: 2021/07/26 10:10:17 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ RENDERSRC = ./render/setup_hooks.c ./render/ft_control_player.c ./render/ft_keyc
 
 ANIMATESRC = ./animation/ft_animate.c
 
+RANDOMSRC = ./random/ft_seed.c
+
 LIBFTPATH = ./libft/
 
 all: $(NAME)
@@ -40,7 +42,7 @@ all: $(NAME)
 ${NAME}:
 	make -C ${LIBFTPATH}
 	mv $(LIBFTPATH)${LIBFTNAME} ${LIBFTNAME}
-	${CC} ${CFLAGS} ${SRC} $(MAPTOOLS) ${RENDERSRC} ${ANIMATESRC} ${LIBFTNAME} ${MINILIBX} -o ${NAME}
+	${CC} ${CFLAGS} ${SRC} $(MAPTOOLS) ${RENDERSRC} ${RANDOMSRC} ${ANIMATESRC} ${LIBFTNAME} ${MINILIBX} -o ${NAME}
 
 clean:
 		rm -rf *.o

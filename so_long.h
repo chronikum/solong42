@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 09:54:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 10:22:32 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ void		ft_tree2(t_render_v **vars, t_game_map **map);
 void		ft_tree3(t_render_v **vars, t_game_map **map);
 
 int			ft_animate(t_game_map **m, t_render_v **v);
+
+int			ft_ps_random();
 
 #endif
