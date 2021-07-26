@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 11:41:33 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:11:03 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,7 @@ int			ft_animate(t_game_map **m, t_render_v **v);
 int			ft_ps_random();
 void		ft_put_enemy(t_game_map **map);
 void		ft_move_enemy(t_game_map **map);
+
+int			ft_game_over(t_game_map **map, t_render_v **vars);
 
 #endif

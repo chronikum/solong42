@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 11:55:01 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:12:31 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,19 +84,15 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 {
 	void	*p[2];
 	char	*go;
-	int		wh;
-	int		wc;
 
-	wh = ft_whc(game_map);
-	wc = ft_wwc(game_map);
 	p[0] = (*vars)->mlx;
 	p[1] = (*vars)->win;
-	go = "Game Over!";
+	go = "You won!";
 	if (game_map->map_data && vars)
 	{
 		mlx_clear_window((*vars)->mlx, (*vars)->win);
-		if (game_map->game_over)
-			mlx_string_put(p[0], p[1], wc, wh, ORANGE, go);
+		if (ft_game_over(&game_map, vars))
+			ft_ps_random();
 		else if (p[1] && p[0])
 		{
 			ft_animate(&game_map, vars);

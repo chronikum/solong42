@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 11:40:01 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 12:02:13 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 12:06:12 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ static int	is_valid_x(int change, t_game_map **map)
 	return (1);
 }
 
+/*
+**	Moves the enemy "random" in a direction.
+**	Also makes sure the direction is actually valid!
+*/
 void	ft_move_enemy(t_game_map **map)
 {
 	int change;
@@ -46,14 +50,7 @@ void	ft_move_enemy(t_game_map **map)
 	else
 		ho = ho - 1;
 	if (dir == 1 && is_valid_y(ho, map))
-	{
-		ft_printf("Y MOVEMENT TO %d is ok! \n", ho);
 		(*map)->enemyPos[1] = ho;
-	}
 	else if (dir == 0 && is_valid_x(ho, map))
-	{
-		ft_printf("X MOVEMENT TO %d is ok! \n", ho);
 		(*map)->enemyPos[0] = ho;
-	}
-	ft_printf("ENEMY POSITION: Y %d X %d\n", (*map)->enemyPos[1], (*map)->enemyPos[0]);
 }
