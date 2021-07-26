@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 15:49:37 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 08:03:46 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,11 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 {
 	void	*p[2];
 	char	*go;
-	int		col;
 	int		wh;
 	int		wc;
 
 	wh = ft_whc(game_map);
 	wc = ft_wwc(game_map);
-	col = 0xFE6500;
 	p[0] = (*vars)->mlx;
 	p[1] = (*vars)->win;
 	go = "Game Over!";
@@ -83,12 +81,13 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 	{
 		ft_clear_content(vars);
 		if (game_map->game_over)
-			mlx_string_put(p[0], p[1], wc, wh, col, go);
+			mlx_string_put(p[0], p[1], wc, wh, ORANGE, go);
 		else if (p[1] && p[0])
 		{
+			ft_animate(&game_map, vars);
 			ft_draw_content(vars, game_map);
 			go = ft_itoa(game_map->steps);
-			mlx_string_put(p[0], p[1], 10, 10, col, go);
+			mlx_string_put(p[0], p[1], 10, 10, ORANGE, go);
 			free(go);
 		}
 	}

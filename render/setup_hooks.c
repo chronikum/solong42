@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:31:57 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 16:06:29 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 08:18:32 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_build_img(t_game_map **map, t_render_v **vars)
 	ft_exit_image(vars, map);
 	ft_bg_image(vars, map);
 	ft_marvin_img(vars, map);
+	ft_animate(map, vars);
 }
 
 /*
@@ -90,6 +91,7 @@ static t_render_v	*ft_init_window(t_game_map *game_map)
 	ft_free_stuff(&game_map, NULL);
 	mlx_key_hook(vars->win, key_hook, &vars);
 	mlx_hook(vars->win, 17, 0, exit_hook, &vars);
+	// mlx_loop_hook(vars->mlx, ft_animate, &vars);
 	mlx_loop(vars->mlx);
 	key_hook(-1, &vars);
 	return (vars);

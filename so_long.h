@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/25 19:00:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 09:07:11 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 
 # define TILE_WIDTH 80
 
-# define WALL "./assets/dirt.xpm"
-# define STAR "./assets/diamond.xpm"
+# define WALL "./assets/baum1.xpm"
+# define STAR "./assets/flower.xpm"
 # define STONE "./assets/stone.xpm"
 # define EXIT "./assets/exit80.xpm"
+
+# define ORANGE 0xFE6500
 typedef struct s_game_map
 {
 	int		map_height;
@@ -81,6 +83,12 @@ void		ft_wall_image(t_render_v **vars, t_game_map **map);
 void		ft_star_image(t_render_v **vars, t_game_map **map);
 void		ft_exit_image(t_render_v **vars, t_game_map **map);
 void		ft_bg_image(t_render_v **vars, t_game_map **map);
+
 void		ft_marvin_img(t_render_v **vars, t_game_map **map);
+void		ft_marvin2_img(t_render_v **vars, t_game_map **map);
+void		ft_marvin3_img(t_render_v **vars, t_game_map **map);
+void		ft_marvin4_img(t_render_v **vars, t_game_map **map);
+
+int			ft_animate(t_game_map **m, t_render_v **v);
 
 #endif

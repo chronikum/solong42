@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/18 13:43:08 by jfritz            #+#    #+#              #
-#    Updated: 2021/07/25 19:02:29 by jfritz           ###   ########.fr        #
+#    Updated: 2021/07/26 08:34:10 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ MAPTOOLS = ./map/ft_get_map.c ./map/ft_check_map_file.c ./map/ft_map_validation_
 ./map/ft_aux_check_map_file.c
 
 RENDERSRC = ./render/setup_hooks.c ./render/ft_control_player.c ./render/ft_keycode_action.c ./render/ft_render_basic.c \
-./render/ft_aux_window.c ./render/ft_aux_logic.c ./render/ft_put_img.c ./render/ft_images.c
+./render/ft_aux_window.c ./render/ft_aux_logic.c ./render/ft_put_img.c ./render/ft_images.c ./render/ft_character.c
+
+ANIMATESRC = ./animation/ft_animate.c
 
 LIBFTPATH = ./libft/
 
@@ -37,7 +39,7 @@ all: $(NAME)
 ${NAME}:
 	make -C ${LIBFTPATH}
 	mv $(LIBFTPATH)${LIBFTNAME} ${LIBFTNAME}
-	${CC} ${CFLAGS} ${SRC} $(MAPTOOLS) ${RENDERSRC} ${LIBFTNAME} ${MINILIBX} -o ${NAME}
+	${CC} ${CFLAGS} ${SRC} $(MAPTOOLS) ${RENDERSRC} ${ANIMATESRC} ${LIBFTNAME} ${MINILIBX} -o ${NAME}
 
 clean:
 		rm -rf *.o
