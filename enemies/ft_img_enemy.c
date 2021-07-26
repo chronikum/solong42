@@ -6,12 +6,11 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 10:38:55 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 13:03:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 14:15:54 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
 
 void	ft_enemy1(t_render_v **vars, t_game_map **map)
 {

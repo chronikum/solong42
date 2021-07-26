@@ -8,9 +8,9 @@
 */
 void	ft_put_enemy(t_game_map **map)
 {
-	static int enemyPos[2];
-	static int enemySet = 0;
-	
+	static int	enemyPos[2];
+	static int	enemySet = 0;
+
 	while (enemySet == 0)
 	{
 		enemyPos[1] = ((ft_ps_random() + 1) % (*map)->map_height);

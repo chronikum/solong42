@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 11:40:01 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 12:31:26 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/26 14:16:39 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static int	is_valid_x(int change, t_game_map **map)
 */
 void	ft_move_enemy(t_game_map **map)
 {
-	int change;
-	int dir;
-	int ho;
-	
+	int	change;
+	int	dir;
+	int	ho;
+
 	change = (ft_ps_random() + (*map)->steps) % 10;
-	dir = ft_ps_random() % 2; 
+	dir = ft_ps_random() % 2;
 	ho = (*map)->enemyPos[0];
 	if (dir == 1)
 		ho = (*map)->enemyPos[1];
