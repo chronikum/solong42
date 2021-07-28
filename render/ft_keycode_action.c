@@ -6,14 +6,13 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 12:33:29 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 09:19:52 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 10:11:41 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-
-static void ft_print_step(t_game_map *map)
+static void	ft_print_step(t_game_map *map)
 {
 	if (!BONUS && (!map->game_over))
 		ft_printf("%d\n", map->steps);

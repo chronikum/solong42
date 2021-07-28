@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 10:41:25 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 10:54:04 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 10:10:15 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,12 @@ int	ft_get_map(int argc, char *argv[], t_game_map **game_map)
 		(*game_map)->map_height = map_h;
 		(*game_map)->map_length = map_l;
 		(*game_map)->max_score = ft_max_score((*game_map));
-		if (ft_check_map_data((*game_map)))
+		if (ft_check_map_data(game_map))
 			return (1);
 		ft_free_map_data(&((*game_map)->map_data), map_h);
 	}
 	(*game_map)->map_data = NULL;
-	(*game_map) = NULL;
 	free((*game_map));
+	(*game_map) = NULL;
 	return (0);
 }

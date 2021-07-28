@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 08:55:07 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 09:14:49 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 10:12:59 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	ft_if_putenemy(t_game_map **map)
 
 void	ft_put_steps(t_render_v **vars, t_game_map **map)
 {
-	char *go;
-	
+	char	*go;
+
 	if (BONUS)
 	{
 		go = ft_itoa((*map)->steps);

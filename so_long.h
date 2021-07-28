@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 09:13:43 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 09:47:44 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@
 # define STONE "./assets/floor1.xpm"
 # define EXIT "./assets/exit80.xpm"
 
+# define ERR_MSG "The provided map is invalid!"
+
 # define ENEMY1 "./assets/evil1.xpm"
 # define ENEMY2 "./assets/evil2.xpm"
 
-# define GAME_LOST "The owl catched you :("
+# define GAME_LOST "Game over"
 # define GAME_WON "You won!"
 
 # define ORANGE 0xFE6500
@@ -53,6 +55,7 @@ typedef struct s_game_map
 	int		drawP;
 	int		*enemyPos;
 	int		enemySet;
+	char	*err_msg;
 }	t_game_map;
 
 typedef struct s_render_v {
@@ -61,7 +64,7 @@ typedef struct s_render_v {
 }	t_render_v;
 
 int			ft_get_map(int argc, char *argv[], t_game_map **game_map);
-int			ft_check_map_data(t_game_map *game_map);
+int			ft_check_map_data(t_game_map **game_map);
 
 int			ft_check_is_wall(char *wall);
 char		*ft_singlelinechr(char *line, char c);
