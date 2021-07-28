@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_seed.c                                          :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/26 10:03:43 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 08:48:42 by jfritz           ###   ########.fr       */
+/*   Created: 2021/07/28 08:31:54 by jfritz            #+#    #+#             */
+/*   Updated: 2021/07/28 08:32:23 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
-
-/*
-**	Gets called every frame
-**	and user inputs and increases
-**	seed. Technically, not random.
-**	Will provide a value which
-**	literally depends on the
-**	speed of your computer.
-**
-**	Random enough for me.
-*/
-int	ft_ps_random(void)
+int ft_abs(int n)
 {
-	static int	seed = 3;
-
-	seed++;
-	if (seed > 1000)
-		seed = 3;
-	return (seed);
+	if (n < 0)
+		return (-n);
+	return (n);
 }

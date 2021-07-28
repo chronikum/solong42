@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 11:40:01 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 14:16:39 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 08:49:49 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_move_enemy(t_game_map **map)
 
 	change = (ft_ps_random() + (*map)->steps) % 10;
 	dir = ft_ps_random() % 2;
+
 	ho = (*map)->enemyPos[0];
 	if (dir == 1)
 		ho = (*map)->enemyPos[1];
