@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:37:13 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 14:16:07 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 08:21:47 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 # define WALL2 "./assets/baum2.xpm"
 # define WALL3 "./assets/baum3.xpm"
 # define STAR "./assets/flower.xpm"
-# define STONE "./assets/stone.xpm"
+# define STONE "./assets/floor1.xpm"
 # define EXIT "./assets/exit80.xpm"
 
-# define ENEMY1 "./assets/enemy1.xpm"
-# define ENEMY2 "./assets/enemy2.xpm"
+# define ENEMY1 "./assets/evil1.xpm"
+# define ENEMY2 "./assets/evil2.xpm"
 
 # define GAME_LOST "The owl catched you :("
 # define GAME_WON "You won!"
