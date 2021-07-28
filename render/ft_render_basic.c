@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 09:00:23 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 09:14:38 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,7 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 			ft_ps_random();
 			ft_if_putenemy(&game_map);
 			ft_draw_content(vars, game_map);
-			go = ft_itoa(game_map->steps);
-			mlx_string_put(p[0], p[1], 10, 10, ORANGE, go);
-			free(go);
+			ft_put_steps(vars, &game_map);
 			if (BONUS)
 				ft_move_enemy(&game_map);
 		}
