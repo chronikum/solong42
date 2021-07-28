@@ -12,3 +12,4 @@ test.ber1
 valgrind-out.txt
 tasks.json
 run.sh
+so_long.a.dSYM/
