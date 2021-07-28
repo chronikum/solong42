@@ -5,7 +5,6 @@
 *.a
 test.txt
 invalid.txt
-*.ber
 so_long.a.dSYM/Contents/Info.plist
 test.ber1
 .gitignore
