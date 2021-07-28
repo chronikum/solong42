@@ -6,11 +6,18 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 12:33:29 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 13:14:11 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 09:19:52 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+
+static void ft_print_step(t_game_map *map)
+{
+	if (!BONUS && (!map->game_over))
+		ft_printf("%d\n", map->steps);
+}
 
 /*
 **	Checks if the new position would be a wall and returns 0
@@ -39,7 +46,7 @@ static t_game_map	*ft_move_vertical(t_game_map *game_map, int dir)
 	{
 		game_map->player_position_y += dir * TILE_WIDTH;
 		game_map->steps++;
-		ft_printf("%d\n", game_map->steps);
+		ft_print_step(game_map);
 	}
 	return (game_map);
 }
@@ -55,7 +62,7 @@ static t_game_map	*ft_move_horizontal(t_game_map *game_map, int dir)
 	{
 		game_map->player_position_x += dir * TILE_WIDTH;
 		game_map->steps++;
-		ft_printf("%d\n", game_map->steps);
+		ft_print_step(game_map);
 	}
 	return (game_map);
 }
