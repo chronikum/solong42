@@ -6,12 +6,11 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 09:42:46 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 10:12:42 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 10:16:28 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 void	ft_free_stuff(t_game_map **game_map, t_render_v **vars)
 {
@@ -37,8 +36,8 @@ void	ft_free_stuff(t_game_map **game_map, t_render_v **vars)
 static int	ft_exit_with_error(void)
 {
 	ft_putendl_fd("Error", 2);
-	ft_putstr("The map is invalid or the file was not found.", 2);
-	ft_putstr("Also check the file ending.", 2);
+	ft_putstr("The map is invalid or the file was not found.");
+	ft_putstr("Also check the file ending.");
 	return (1);
 }
 
