@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 13:57:58 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/26 13:49:53 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/28 09:00:23 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ static void	ft_render_enemy(t_render_v **vars, t_game_map **map)
 	int			pos[2];
 	static int	rand;
 
-	rand = ft_ps_random() % 3;
-	ft_enemy1(vars, map);
-	if (rand == 1)
-		ft_enemy2(vars, map);
-	pos[0] = ((*map)->enemyPos[0] * TILE_WIDTH);
-	pos[1] = ((*map)->enemyPos[1] * TILE_WIDTH);
-	ft_put_img(vars, (*map)->enemy, pos[0], pos[1]);
+	if (BONUS == 1)
+	{
+		rand = ft_ps_random() % 3;
+		ft_enemy1(vars, map);
+		if (rand == 1)
+			ft_enemy2(vars, map);
+		pos[0] = ((*map)->enemyPos[0] * TILE_WIDTH);
+		pos[1] = ((*map)->enemyPos[1] * TILE_WIDTH);
+		ft_put_img(vars, (*map)->enemy, pos[0], pos[1]);
+	}
 }
 
 static void	ft_put_player(t_render_v **vars, t_game_map *game_map)
@@ -98,12 +101,13 @@ void	ft_render_basic(t_game_map *game_map, t_render_v **vars)
 		{
 			ft_animate(&game_map, vars);
 			ft_ps_random();
-			ft_put_enemy(&game_map);
+			ft_if_putenemy(&game_map);
 			ft_draw_content(vars, game_map);
 			go = ft_itoa(game_map->steps);
 			mlx_string_put(p[0], p[1], 10, 10, ORANGE, go);
 			free(go);
-			ft_move_enemy(&game_map);
+			if (BONUS)
+				ft_move_enemy(&game_map);
 		}
 	}
 }

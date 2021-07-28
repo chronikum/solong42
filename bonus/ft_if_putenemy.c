@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_if_putenemy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 08:31:54 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 08:53:13 by jfritz           ###   ########.fr       */
+/*   Created: 2021/07/28 08:55:07 by jfritz            #+#    #+#             */
+/*   Updated: 2021/07/28 09:03:27 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int n)
+#include "../so_long.h"
+
+void	ft_if_putenemy(t_game_map **map)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	if (BONUS == 1)
+		ft_put_enemy(map);
 }

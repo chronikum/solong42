@@ -6,7 +6,7 @@
 #    By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/18 13:43:08 by jfritz            #+#    #+#              #
-#    Updated: 2021/07/26 12:12:21 by jfritz           ###   ########.fr        #
+#    Updated: 2021/07/28 09:01:36 by jfritz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,17 +37,24 @@ RANDOMSRC = ./random/ft_seed.c
 
 ENEMYSRC = ./enemies/ft_img_enemy.c ./enemies/ft_put_enemy.c ./enemies/ft_move_enemy.c
 
+BONUSSRC = ./bonus/ft_if_putenemy.c
+
 LIBFTPATH = ./libft/
 
 all: $(NAME)
 
-${NAME}:
+${NAME}: fclean
 	make -C ${LIBFTPATH}
 	mv $(LIBFTPATH)${LIBFTNAME} ${LIBFTNAME}
-	${CC} ${CFLAGS} ${SRC} $(MAPTOOLS) ${RENDERSRC} ${RANDOMSRC} ${ENEMYSRC} ${ANIMATESRC} ${LIBFTNAME} ${MINILIBX} -o ${NAME}
+	${CC} ${CFLAGS} ${SRC} $(MAPTOOLS) ${RENDERSRC} ${RANDOMSRC} ${ENEMYSRC} ${BONUSSRC} ${ANIMATESRC} ${LIBFTNAME} ${MINILIBX} -o ${NAME} -D BONUS=0
 
 clean:
-		rm -rf *.o
+	rm -rf *.o
+
+bonus: fclean
+	make -C ${LIBFTPATH}
+	mv $(LIBFTPATH)${LIBFTNAME} ${LIBFTNAME}
+	${CC} ${CFLAGS} ${SRC} $(MAPTOOLS) ${RENDERSRC} ${RANDOMSRC} ${ENEMYSRC} ${BONUSSRC} ${ANIMATESRC} ${LIBFTNAME} ${MINILIBX} -o ${NAME} -D BONUS=1
 
 fclean: clean
 	rm -f $(LIBFTNAME) ${OBJS} $(NAME)
