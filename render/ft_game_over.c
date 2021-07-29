@@ -6,7 +6,7 @@
 /*   By: jfritz <jfritz@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:06:59 by jfritz            #+#    #+#             */
-/*   Updated: 2021/07/28 09:02:58 by jfritz           ###   ########.fr       */
+/*   Updated: 2021/07/29 08:10:54 by jfritz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_game_over(t_game_map **map, t_render_v **vars)
 	{
 		if ((*map)->map_data[pos[0]][pos[1]] == 'E' && ft_game_end((*map)))
 			return (ft_game_won(map, p, w_v));
-		if (BONUS)
+		if (BONUS && (*map)->enemyPos)
 		{
 			if ((*map)->enemyPos[0] == pos[1]
 				&& (*map)->enemyPos[1] == pos[0])
